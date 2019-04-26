@@ -1,0 +1,134 @@
+<?php if (!defined('THINK_PATH')) exit();?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<link href="https://first.xcxweshine.com/Public/admin/assets/css/bootstrap.min.css" rel="stylesheet" />
+<link rel="stylesheet" href="https://first.xcxweshine.com/Public/admin/assets/css/font-awesome.min.css" />
+<!--[if IE 7]>
+  <link rel="stylesheet" href="https://first.xcxweshine.com/Public/admin/assets/css/font-awesome-ie7.min.css" />
+<![endif]-->
+<link rel="stylesheet" href="https://first.xcxweshine.com/Public/admin/assets/css/ace.min.css" />
+<link rel="stylesheet" href="https://first.xcxweshine.com/Public/admin/assets/css/ace-rtl.min.css" />
+<link rel="stylesheet" href="https://first.xcxweshine.com/Public/admin/assets/css/ace-skins.min.css" />
+<link rel="stylesheet" href="https://first.xcxweshine.com/Public/admin/css/style.css"/>
+<!--[if lte IE 8]>
+  <link rel="stylesheet" href="assets/css/ace-ie.min.css" />
+<![endif]-->
+<script src="https://first.xcxweshine.com/Public/admin/assets/js/ace-extra.min.js"></script>
+<!--[if lt IE 9]>
+<script src="https://first.xcxweshine.com/Public/admin/assets/js/html5shiv.js"></script>
+<script src="https://first.xcxweshine.com/Public/admin/assets/js/respond.min.js"></script>
+<![endif]-->
+<script src="https://first.xcxweshine.com/Public/admin/js/jquery-1.9.1.min.js"></script>        
+<script src="https://first.xcxweshine.com/Public/admin/assets/layer/layer.js" type="text/javascript"></script>
+<title>登陆</title>
+</head>
+
+<body class="login-layout">
+<div class="logintop">    
+    <span>欢迎后台管理界面平台</span>    
+    <ul><li><a href="#">返回首页</a></li></ul>    
+</div>
+<div class="loginbody">
+	<div class="login-container">
+		<div class="center">
+			<h1><i class="icon-leaf green"></i><span class="orange"></span><span class="white">&nbsp;&nbsp;&nbsp;后台管理系统</span></h1>
+			<h4 class="white"></h4>
+		</div>
+		<div class="space-6"></div>
+
+		<div class="position-relative">
+			<div id="login-box" class="login-box widget-box no-border visible">
+				<div class="widget-body">
+					<div class="widget-main">
+						<h4 class="header blue lighter bigger"><i class="icon-coffee green"></i>管理员登陆</h4>
+						<div class="login_icon"><img src="https://first.xcxweshine.com/Public/admin/images/login.png" /></div>
+						<form class="">
+							<fieldset>
+								<label class="block clearfix">
+									<span class="block input-icon input-icon-right">
+										<input type="text" class="form-control" name="username" id="username" placeholder="登录名"  title="登录名">
+										<i class="icon-user"></i>
+									</span>
+								</label>
+
+								<label class="block clearfix">
+									<span class="block input-icon input-icon-right">
+										<input type="password" class="form-control" name="password" id="password" placeholder="密码" title="密码">
+										<i class="icon-lock"></i>
+									</span>
+								</label>
+								
+								<label class="block clearfix">
+									<span class="block input-icon input-icon-right">
+										<input type="text" maxlength="16" id="veriCode" name="veriCode" style="border-color:#99CCFF;width:100px" placeholder="验证码" title="验证码"/>
+										<img id="verifyImg" src="<?php echo U('veriCode');?>" onClick="changeVerify()" style='float:right;width: 150px;height: 32px;'/> 
+									</span>
+								</label>
+								
+								<div class="space"></div>
+								<div class="clearfix"><button type="button" class="width-35 pull-right btn btn-sm btn-primary" id="login_btn" style="margin-right:0px;"><i class="icon-key"></i>登陆</button></div>
+								<div class="space-4"></div>
+							</fieldset>
+						</form>
+
+						<div class="social-or-login center"><span class="bigger-110">通知</span></div>
+						<div class="social-login center">本网站系统不再对IE8以下浏览器支持，请见谅。</div>
+					</div><!-- /widget-main -->
+					<div class="toolbar clearfix"></div>
+				</div><!-- /widget-body -->
+			</div><!-- /login-box -->
+		</div><!-- /position-relative -->
+	</div>
+</div>
+<div class="loginbm">版权所有  2016  </div><strong></strong>
+</body>
+</html>
+<script>
+$('#login_btn').on('click', function(){
+	var num=0;
+	var str="";
+	$("input[type$='text']").each(function(n){
+		if($(this).val()=="")
+		{
+			layer.msg(str+=""+$(this).attr("title")+"不能为空！\r\n",{icon:2,time:1000});
+			num++;
+			return false;            
+		} 
+	});
+	if(num>0){return false;}	 	
+	else{
+	
+		var username=$("#username").val();
+		var password=$("#password").val();
+		var veriCode=$("#veriCode").val();
+
+		var dataVal={username:username,password:password,veriCode:veriCode};
+		
+		$.post('/index.php/Index/check',dataVal,function(data){
+			/*data是返回的值*/
+			if(data.flag==1){
+				layer.msg("登录成功",{icon:1,time:1000},function(){
+					location.href="/index.php/Index";
+				});
+			}else if(data.flag==2){
+				layer.msg("请输入正确的验证码！",{icon:2,time:1000},function(){
+					location.href="/index.php/Index";
+				});
+			}else{
+				layer.msg("请输入正确的账号及密码！",{icon:2,time:1000},function(){
+					location.href="/index.php/Index";
+				});
+			}
+		},'json');
+		
+		
+	}		  		     						
+})
+
+
+function changeVerify(){
+	document.getElementById('verifyImg').src='<?php echo U('veriCode');?>';
+}
+
+</script>

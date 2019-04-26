@@ -1,0 +1,325 @@
+.mui-content {
+    padding-top: 1.76rem;
+}
+
+.mui-content > .mui-table-view:first-child {
+    margin-top: 0;
+}
+
+.mui-table-view-cell {
+    height: 2.92rem !important;
+    background: #FDF7E8;
+    font-size: 0.6rem;
+    color: #333;
+    padding: 0.44rem 0.6rem;
+}
+
+.mui-table-view .mui-media-body {
+    padding-top: 0.1rem;
+}
+
+.mui-table-view .mui-media-object {
+    max-width: 1.62rem;
+    height: 1.62rem;
+    border-radius: 50%;
+    margin-top: 0.2rem;
+}
+
+.mui-table-view:after, .mui-table-view:before {
+    height: 0;
+}
+
+.p1 {
+    font-size: 0.44rem;
+    margin-top: 0.2rem;
+}
+
+.red_btn {
+    width: 3.16rem;
+    height: 1.2rem;
+    line-height: 1.28rem;
+    text-align: center;
+    font-size: 0.56rem;
+    color: #fff;
+    background: #ff4747;
+    top: 0.8rem;
+    right: 0.64rem;
+    position: absolute;
+    border-radius: 0.2rem;
+}
+
+.gold_title {
+    font-size: 0.48rem !important;
+    background: #fff;
+    margin-top: 0.4rem;
+    color: #555555 !important;
+}
+
+.gold_img {
+    max-width: 2.24rem;
+    vertical-align: middle;
+    margin-top: -0.16rem;
+}
+
+.db_item {
+    padding: 0.2rem 0.64rem;
+    font-size: 0.64rem;
+    color: #555;
+    font-weight: bold;
+    border-bottom: 1px solid #ececec;
+    background: #fff;
+}
+
+.db_item p {
+    font-weight: normal;
+    font-size: 0.48rem;
+}
+
+.p2 {
+    margin: 0.32rem 0 0.24rem;
+    color: #666;
+}
+
+.p2 span {
+    color: #999;
+}
+
+.p3 {
+    margin-bottom: 0;
+
+}
+
+.price {
+    height: 1.6rem;
+    line-height: 1.6rem;
+    font-size: 0.48rem;
+    color: #333;
+    background: #fff;
+    padding: 0 0.64rem;
+
+}
+
+.pf {
+    background: url("https://static.9891.com/app/icon/goodsxq_22.png") no-repeat;
+    background-size: cover;
+}
+
+.fh {
+    background: url("https://static.9891.com/app/icon/goodsxq_25.png") no-repeat;
+    background-size: cover;
+    margin-left: 0.4rem;
+}
+
+.jb {
+    width: 0.8rem;
+    height: 0.8rem;
+    background: pink;
+    display: inline-block;
+    vertical-align: middle;
+    margin-top: -4px;
+    background: url("https://static.9891.com/app/icon/goodsxq_14.png") no-repeat;
+    background-size: cover;
+    margin-left: -1px;
+}
+
+.title {
+    height: 1.4rem;
+    line-height: 1.4rem;
+    font-size: 0.52rem;
+    color: #333;
+    background: #fff;
+    padding: 0 0.64rem;
+    margin-top: 0.4rem;
+    border-bottom: 1px solid #ececec;
+}
+
+.detail {
+    padding: 0.6rem 0.64rem 0;
+    background: #fff;
+}
+
+.detail div {
+    margin-bottom: 0.6rem;
+    font-size: 0.48rem;
+    color: #333;
+
+}
+
+.label {
+    font-size: 0.48rem;
+    color: #999;
+    text-align: right;
+
+}
+
+.label_info {
+    padding-left: 1rem;
+}
+
+.copy {
+    display: inline-block;
+    font-size: 0.48rem;
+    width: 2rem;
+    height: 0.92rem;
+    line-height: 0.92rem;
+    text-align: center;
+    color: #4ab9e7;
+    border: 1px solid #4AB9E7;
+    border-radius: 0.1rem;
+}
+
+.touxiang {
+    width: 2.1875rem;
+    vertical-align: middle;
+    float: left;
+    margin-top: 0.5rem;
+    margin-right: 0.75rem;
+    border-radius: 100%;
+}
+
+.jpmj {
+    font-size: 0.56rem;
+    color: #ffab62;
+    font-weight: bold;
+    float: left;
+    margin-top: 0.5rem;
+    text-align: left;
+}
+
+.mjxy {
+    font-size: 0.48rem;
+    color: #666666 !important;
+    float: left;
+    font-weight: normal;
+    margin-top: 0.5rem;
+}
+
+.hzuan {
+    /*width: 0.75rem;*/
+    vertical-align: middle;
+}
+
+.jp_img {
+    width: 1.625rem;
+    float: right;
+    margin-top: 0.5rem;
+}
+
+/*.content_ul{
+	background-color: #FFFFFF;
+	overflow: hidden;
+}*/
+.content_ul li {
+    float: left;
+    width: 33.3%;
+    text-align: center;
+    box-sizing: border-box;
+    padding-top: 0.625rem;
+    padding-bottom: 0.625rem;
+
+}
+
+.bs {
+    font-size: 0.72rem;
+    color: #333333;
+    text-align: center;
+    margin-bottom: 0px;
+    padding-bottom: 0.625rem;
+    border-right: 1px solid #ececec;
+
+}
+
+.cjl {
+    font-size: 0.48rem;
+    text-align: center;
+    color: #999;
+    margin-bottom: 0rem;
+    border-right: 1px solid #ececec;
+}
+
+.cont_last {
+    width: 100%;
+    /*margin-top: 0.625rem;*/
+    height: 1.96rem;
+    line-height: 1.96rem;
+    background-color: #404040;
+    box-sizing: border-box;
+    padding: 0 0.4rem;
+    font-size: 0.75rem;
+    color: #999999;
+    position: fixed;
+    left: 0rem;
+    bottom: 0rem;
+}
+
+.total {
+    float: left;
+    font-size: 0.44rem;
+}
+
+.lxmj {
+    width: 3.62rem;
+    height: 1.22rem;
+    text-align: center;
+    line-height: 1.22rem;
+    font-size: 0.56rem;
+    color: #555;
+    border: 1px solid #ddd;
+    margin-top: 0.27rem;
+    margin-right: 0.64rem;
+    border-radius: 0.2rem;
+
+}
+
+.qxdd {
+    width: 3.02rem;
+    height: 1.22rem;
+    text-align: center;
+    line-height: 1.22rem;
+    font-size: 0.56rem;
+    color: #555;
+    border: 1px solid #ddd;
+    margin-right: 0.64rem;
+    border-radius: 0.2rem;
+
+    margin-top: 0.27rem;
+}
+
+.qfk {
+    width: 3.02rem;
+    height: 1.22rem;
+    text-align: center;
+    line-height: 1.22rem;
+    font-size: 0.56rem;
+    color: #555;
+    border: 1px solid #ddd;
+    margin-top: 0.27rem;
+    margin-right: 0.64rem;
+    border-radius: 0.2rem;
+}
+
+.lxmj:hover, .qxdd:hover, .qfk:hover {
+    background: #FFEAEA;
+    border-color: #ff4747;
+    color: #ff4747;
+}
+
+.mui-bar {
+    box-shadow: none;
+}
+
+.mui-bar-tab ~ .mui-content {
+    padding-bottom: 2.16rem;
+}
+
+.icon_qq {
+    width: 0.56rem;
+    height: 0.56rem;
+    background: pink;
+    display: inline-block;
+    vertical-align: middle;
+    margin-top: -0.14rem;
+    background: url("https://static.9891.com/app/icon/qq.png") no-repeat;
+    background-size: cover;
+    margin-right: 0.06rem;
+}

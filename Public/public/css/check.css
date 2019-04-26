@@ -1,0 +1,344 @@
+.pay_time{
+	width: 100%;
+	/*height: 1.76rem;
+	line-height:1rem;*/
+	background-color: #FDF7E8;
+	font-size: 0.48rem;
+	color: #333333;
+	text-align: center;
+	padding: 0.2rem 0;
+}
+.sysj_span{
+	width: 3.3rem;
+	height: 0.8rem;
+	line-height: 0.8rem;
+	margin: 0 auto;
+	background: url(https://static.9891.com/app/icon/djs.png) no-repeat center;
+	background-size:contain;
+	vertical-align: middle;
+	position: relative;
+	
+}
+#minute_show{
+	display: inline-block;
+	width: 1.5rem;
+	height: 0.8rem;
+	letter-spacing:0.55rem;
+	position: absolute;
+	top:0.03rem;
+	left: 0.15rem;
+	color: #FFFFFF;
+	
+}
+#second_show{
+	display: inline-block;
+	width: 1.5rem;
+	height: 0.8rem;
+	letter-spacing:0.55rem;
+	position: absolute;
+	top:0.03rem;
+	left: 2.08rem;
+	color: #FFFFFF;
+}
+.span_01{
+	display:inline-block;
+	width: 0.48rem;
+	height: 0.48rem;
+    background: #FF4747;
+    float: left;
+    line-height: 0.48rem;
+    font-size: 0.44rem;
+    text-align: center;
+    color: #FFFFFF;
+}
+p{
+	line-height: 1rem;
+}
+.gold_title {
+    font-size: 0.48rem;
+    color: #555555;
+    width: 100%;
+    box-sizing: border-box;
+    padding: 0 0.4rem;
+    background: #fff;
+}
+.gold_img {
+   
+    vertical-align: middle;
+    /* margin-top: -8px; */
+    transform: scale(1.45);
+    -webkit-transform: scale(1.45);
+    -ms-transform: scale(1.45);
+    -moz-transform: scale(1.45);
+}
+
+.red_btn {
+    width: 7.5rem;
+    height: 1.6rem;
+    margin: 0.56rem auto !important;
+    border: none;
+    text-align: center;
+    line-height: 1.6rem;
+    font-size: 0.64rem;
+    border-radius: 0.2rem;
+}
+.gold{
+	margin-top: 0.4rem;
+}
+.frist_p{
+	font-size:0.64rem;
+	color: #555555;
+	font-weight: bold;
+	padding-top:0.24rem;
+}
+.hongbao{
+	width: 100%;
+	/*height: 2.1rem;
+	line-height: 2.1rem;*/
+	background:#FFFFFF;
+	box-sizing: border-box;
+	padding:0.52rem 0.64rem;
+	color: #333;
+	font-size: 0.62rem !important;
+	border-bottom:0.02rem solid #ECECEC;
+	position: relative;
+}
+.second_p{
+	/*padding: 0 0.2rem 0.4rem;*/
+	padding: 0.8rem;
+	font-size: 0.48rem;
+	color: #555555;
+	position: relative;
+}
+.money_01{
+	position: absolute;
+	right: 0.4rem;
+	top:0.85rem;
+}
+.hiden_div{
+	width: 100%;
+}
+.zanwu{
+	font-size: 0.48rem;
+	color: #999999;
+	float: right !important;
+	margin-right: 0.6rem;
+}
+.hb_icon{
+	display: inline-block;
+	width: 0.72rem;
+	height: 0.72rem;
+	background: url(https://static.9891.com/app/icon/hongbao.png) no-repeat center;
+    background-size: contain;
+    vertical-align: middle;
+    margin-right: 0.3rem; 
+    margin-top: -4px;
+}
+.jd_icon{
+	background: url(https://static.9891.com/app/icon/jindou.png) no-repeat center;
+    background-size: contain;
+    vertical-align: middle;
+}
+.zanwu_icon{
+	display: inline-block;
+	width: 0.6rem;
+	height: 0.6rem;
+	background: url(https://static.9891.com/app/icon/right_icon.png) no-repeat center;
+    background-size: contain;
+    vertical-align: middle;
+    /*margin-top: -2px;
+    margin-left: 0.24rem;*/
+   position: absolute;
+    top: 32%;
+    right: 0.64rem;
+}
+.green_icon{
+	display: inline-block;
+	width: 0.6rem;
+	height: 0.6rem;
+	background: url(https://static.9891.com/app/icon/dan-wei.png) no-repeat center;
+    background-size: contain;
+    vertical-align: middle;
+    margin-left: 0.24rem;
+    position: absolute;
+    top: 32%;
+    right: 0.64rem;
+	
+}
+.red_icon{
+	display: inline-block;
+	width: 0.6rem;
+	height: 0.6rem;
+	background: url(https://static.9891.com/app/icon/dan-xuan.png) no-repeat center;
+    background-size: contain;
+    vertical-align: middle;
+    margin-left: 0.24rem;
+    display: none;
+    position: absolute;
+    top: 32%;
+    right: 0.64rem;
+}
+.yanzhengma {
+    display: inline-block;
+    width:3.16rem;
+    height: 1.4rem;
+    line-height: 1.4rem;
+    border: 1px solid #ff9e9e;
+    background: #fff0f0;
+    color: #ff9e9e;
+    margin-top: 0.32rem;
+    text-align: center;
+    font-size: 0.40rem;
+    /*margin-left: 3.25rem;*/
+    /*float: right;*/
+    
+}
+.phone_div{
+	width: 100%;
+	height: 2rem;
+	line-height: 2rem;
+	font-size: 0.52rem;
+	color: #333333;
+	box-sizing: border-box;
+	padding: 0 0.63rem;
+	background: #f5f5f5;
+}
+input[type=text]{
+	width: 9.2rem !important;
+	font-size: 0.52rem !important;
+	margin-left: 0.85rem !important;
+	height: 1.4rem !important;
+	line-height: 1.4rem !important;	  
+    padding: 10px 15px;
+    -webkit-user-select: text;
+    border: 0.02rem solid #DDDDDD !important;
+    border-radius:0 !important;
+    outline: 0;
+    background-color: #fff;
+    -webkit-appearance: none;
+    margin-bottom: 0rem !important;
+}
+.wx_icon{
+	background: url(https://static.9891.com/app/icon/weixin.png) no-repeat center;
+    background-size: contain;
+    vertical-align: middle;
+    margin-top: -2px;
+}
+.zfb_icon{
+	background: url(https://static.9891.com/app/icon/zhifubao.png) no-repeat center;
+    background-size: contain;
+    vertical-align: middle;
+    margin-top: -2px;
+}
+.hongbao_all{
+	width: 100%;
+	height: 1.76rem;
+	line-height: 1.76rem;
+	background:#FFFFFF;
+	box-sizing: border-box;
+	padding: 0 0.64rem;
+	color: #333;
+	font-size: 0.6rem;
+	position: relative;
+	border-bottom:0.02rem solid #ECECEC !important;
+}
+.round_div {
+    width: 1.4rem;
+    height: 2.44rem;
+    line-height: 2.44rem;
+    background: #FFFFFF;
+    border-radius: 50%;
+    text-align: center;
+    margin-top: -5px;
+    margin-right: 0.2rem;
+}
+.qf_title{
+	display: inline-block;
+	width:9.4rem;
+	white-space: nowrap;
+    overflow: hidden;
+    /*text-overflow: ellipsis;*/
+	
+}
+
+/*弹框*/
+.diarlog-box_02 {
+	width: 100%;
+	height: 100%;
+	position: absolute;
+	position: fixed;
+	left: 0;
+	top: 1.76rem;
+	right: 0;
+	bottom: 0;
+	display:block;
+	z-index: 999;
+}
+
+.diarlog {
+	width: 100%;
+	position: relative;
+	left: 0;
+	top: 0;
+	z-index: 9;
+}
+
+.main_dialog {
+	width: 100%;
+	background: #F0F0F0;
+}
+
+.shadow {
+	width: 100%;
+	height: 100%;
+	background: #000;
+	opacity: 0.5;
+	-moz-opacity: 0.5;
+	filter: alpha(opacity=50);
+	position: absolute;
+	top: 0;
+	left: 0;
+}
+.main_dialog_02 {
+    width:86%;
+    position: fixed;
+    top: 1.76rem;
+    right: 0;
+    bottom: 0;
+    z-index: 10;
+    padding: 0.75rem 0.35rem;
+    overflow: auto;
+}
+.lines01{
+    border-top: 0.02rem solid #999;
+    width: 84%;
+    position: relative;
+    margin: 0.8rem auto;
+}
+.user_002{
+    position: absolute;
+    font-size: 0.44rem;
+    color: #999;
+    top: -0.35rem;
+    left: 50%;
+    background: #f0f0f0;
+    width: 3.5rem;
+    text-align: center;
+    margin-left: -1.75rem;
+}
+.no_usehb{
+	width:86%;
+	color: #FF4747;
+	text-align: center;
+	
+	height: 1.96rem;
+    line-height: 1.96rem;
+    background-color: #FFFFFF;
+    box-sizing: border-box;
+   
+    font-size: 0.6rem;
+   
+    position: fixed;
+    right: 0rem;
+    bottom: 0rem;
+}

@@ -1,0 +1,122 @@
+.pkg_list{
+	width: 100%;
+	background-color: #F0F0F0;
+	padding: 0 0.64rem;
+}
+.box {
+	width:100%;
+    background: #fff;
+    border-bottom: 1px solid #ececec;
+    padding: 0.75rem 0.64rem;
+    margin: 0 auto 0.4rem;
+   /* height: 3.84rem;*/
+    background: url(https://static.9891.com/app/icon/box_hbbg.png) no-repeat center;
+    background-size:100% 100%;
+    position: relative;
+}
+.photo {
+    width: 1.94rem;  
+    margin-right: 0.4rem;
+    vertical-align: middle;
+    margin-top: 0.1rem;
+}
+.p1 {
+    font-size: 0.6rem;
+    color: #1a1a1a;
+    margin-bottom:0.4rem;
+}
+.p2 {
+    font-size:0.4rem;
+    color: #666;
+    margin-bottom: 0;
+}
+.span_font{
+	color: #999999;
+}
+.money_span{
+	font-size: 0.88rem;
+	color: #fc4f47;
+}
+.money_b{
+	font-size:1.28rem;
+}
+.look{
+	width: 100%;
+	color: #FF8A05;
+	font-size: 0.44rem;
+	height: 1.12rem;
+	line-height: 1.12rem;
+	background: #fdf7e8;
+	padding: 0 0.64rem;
+	margin-bottom: 0.4rem;
+}
+.lines{
+	border-top: 0.02rem solid #666666;
+	width: 100%;
+	position: relative;
+	margin: 0.8rem 0;
+}
+.user{
+	position: absolute;
+	font-size: 0.44rem;
+	color: #666666;
+	top:-0.35rem;
+	left:36%;
+	background: #f0f0f0;
+    width: 130px;
+    text-align: center;
+}
+.p1_01{
+	color: #999;
+}
+.faii{
+	width: 100%;
+	text-align: center;
+	color: #999;
+	font-size: 0.4rem;
+	margin-bottom: 0.4rem;
+}
+.nouser{
+	width: 100%;
+	text-align: center;
+	color: #FF4747;
+	font-size: 0.6rem;
+	height: 1.96rem;
+	line-height: 1.96rem;
+	background: #FFFFFF;
+	border: 0.02rem solid #ECECEC;
+	position: fixed;
+	bottom: 0;
+	left: 0;
+}
+.user_tishi{
+	width: 1.2rem;
+	height: 1.2rem;
+	background: url(https://static.9891.com/app/icon/choose_pkg.png) no-repeat center;
+    background-size:100% 100%;
+    position: absolute;
+    top: 0;
+    right: 0;
+    display: none;
+}
+.money_span01,.money_b01{
+	color: #999999;
+}
+.past_pkg{
+	width: 1.84rem;
+	height:1.38rem;
+	background: url(https://static.9891.com/app/icon/past_pkg.png) no-repeat center;
+    background-size:100% 100%;
+    position: absolute;
+    top: 2.3rem;
+    right: 0.4rem;
+}
+.used_pkg{
+	width: 1.84rem;
+	height:1.38rem;
+	background: url(https://static.9891.com/app/icon/used_pkg.png) no-repeat center;
+    background-size:100% 100%;
+    position: absolute;
+    top: 2.3rem;
+    right: 0.4rem;
+}

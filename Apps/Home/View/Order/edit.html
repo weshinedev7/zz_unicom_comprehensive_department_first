@@ -1,0 +1,335 @@
+<!doctype html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no"/>
+    <title>检测申请</title>
+    <script src="__PUBLIC__/public/js/zepto.js" type="text/javascript" charset="utf-8"></script>
+	<script src="__PUBLIC__/public/js/mui.min.js" type="text/javascript" charset="utf-8"></script>
+	<script src="__PUBLIC__/public/js/mui.picker.min.js" type="text/javascript" charset="utf-8"></script>
+	<script src="__PUBLIC__/public/js/data.city.js" type="text/javascript" charset="utf-8"></script>
+    <script src="__PUBLIC__/public/js/common.js" type="text/javascript" charset="utf-8"></script>
+	<script src="__PUBLIC__/public/layer_mobile/layer.js" type="text/javascript" charset="utf-8"></script>
+    <link rel="stylesheet" type="text/css" href="__PUBLIC__/public/css/mui.css"/>
+	<link rel="stylesheet" type="text/css" href="__PUBLIC__/public/css/mui.picker.css"/>
+    <link rel="stylesheet" type="text/css" href="__PUBLIC__/public/css/common.css"/>
+    <link rel="stylesheet" type="text/css" href="__PUBLIC__/public/css/sc_order.css"/>
+</head>
+
+<body>
+<header class="mui-bar mui-bar-nav red_bg">
+    <h1 class="mui-title white_color">检测申请</h1>
+</header>
+<div class="mui-content" id="app" style="display: block;">
+    <input type="hidden" value="{$hospitalE}" id="hospitalE" name="hospitalE"/>
+	<form class="mui-input-group" style="margin-top: 0.4rem;">
+        <div class="mui-input-row">
+            <label><span style="color:red;">*&nbsp;</span>就诊城市</label>
+            <input type="text" placeholder="请输入就诊城市" readonly name="chengshi" id="chengshi" value="{$list[0]['chengshi']}">
+        </div>
+        <div class="mui-input-row">
+            <label><span style="color:red;">*&nbsp;</span>就诊医院</label>
+            <input type="text" placeholder="请输入就诊医院" readonly name="yiyuan" id="yiyuan" value="{$list[0]['yiyuan']}">
+        </div>
+		<div class="mui-input-row">
+            <label><span style="color:red;">*&nbsp;</span>就诊科室</label>
+            <input type="text" placeholder="请输入就诊科室" name="keshi" id="keshi" value="{$list[0]['keshi']}">
+        </div>
+		<div class="mui-input-row">
+            <label><span style="color:red;">*&nbsp;</span>主治医师</label>
+            <input type="text" placeholder="请输入主治医师" name="yishi" id="yishi" value="{$list[0]['yishi']}">
+        </div>
+    </form>
+    
+    <form class="mui-input-group" style="margin-top: 0.4rem;">
+        <div class="mui-input-row">
+            <label><span style="color:red;">*&nbsp;</span>姓名</label>
+            <input type="text" placeholder="请输入姓名" name="name" id="name" value="{$list[0]['name']}">
+        </div>
+        <div class="mui-input-row">
+            <label><span style="color:red;">*&nbsp;</span>身份证</label>
+            <input type="text" placeholder="请输入身份证" name="idCode" id="idCode" value="{$list[0]['idcode']}">
+        </div>
+		<div class="mui-input-row">
+            <label><span style="color:red;">*&nbsp;</span>联系电话</label>
+            <input type="text" placeholder="请输入联系电话" name="telephone" id="telephone" value="{$list[0]['telephone']}">
+        </div>
+		<div class="mui-input-row">
+            <label><span style="color:red;">*&nbsp;</span>患者地址</label>
+            <input type="text" placeholder="请输入患者地址" name="address" id="address" value="{$list[0]['address']}">
+        </div>
+    </form>
+
+	<input type="hidden" name="price" id="price" value="{$list[0]['price']}" />
+	
+    <div class="cont_last">
+        <span class="actual fl">实付金额：</span><span class="big_orange fl">￥0.01</span>
+        <button type="button" class="now_qg" id="confirmPay">立即修改</button>
+    </div>
+</div>
+
+<script>
+$(document).ready(function(){
+
+    var hospitals=$("#hospitalE").val();
+    window['hospitals']=hospitals.split(",");
+
+    $("#yiyuan").blur(Check.checkYiyuan);
+    $("#keshi").blur(Check.checkKeshi);
+    $("#yishi").blur(Check.checkYishi);
+    $("#name").blur(Check.checkName);
+    $("#idCode").blur(Check.checkIdCode);
+    $("#telephone").blur(Check.checkTelephone);
+    $("#address").blur(Check.checkAddress);
+    $("#confirmPay").click(Check.checkSubmit);
+
+});
+//选择省市区
+$("#chengshi").on("tap", function(){
+	setTimeout(function(){
+        var city_picker = new mui.PopPicker({layer:3});
+        city_picker.setData(init_city_picker);
+		city_picker.show(function(items){
+            $("#chengshi").val((items[0] || {}).text + "," + (items[1] || {}).text);
+            var city=(items[1] || {}).text;
+            var data = {city:city};
+            $.ajax(
+                {
+                    url:'__URL__/selectCity',
+                    data:data,
+                    type:'POST',
+                    dataType:'json',
+                    success:function(json){
+                        var hospitals=json.hospitals;
+                        window['hospitals']=hospitals.split(",");
+                    }
+                }
+            );
+		});
+	},200);
+});
+
+$("#yiyuan").on("tap", function(){
+    setTimeout(function(){
+        var hos_picker = new mui.PopPicker({layer:1});
+        hos_picker.setData(window['hospitals']);
+        hos_picker.show(function(item){
+            $("#yiyuan").val((item || {}));
+        })
+    },200);
+});
+
+var checkResult = {};
+var Check = {
+    checkChengshi : function() {
+        var chengshiEl = $("#chengshi"),
+            chengshi = $.trim(chengshiEl.val());
+
+        chengshiEl.val(chengshi);
+
+        if(chengshi == ""){
+        	$("#chengshi").removeClass().addClass("has-error");
+			layer.open({content: '请填写就诊城市!',skin: 'msg',time: 2});
+            return false;
+        }
+        else {
+			$("#chengshi").removeClass().addClass("");
+            return false;
+        }
+    },
+	
+	checkYiyuan : function() {
+        var yiyuanEl = $("#yiyuan"),
+            yiyuan = $.trim(yiyuanEl.val());
+
+        yiyuanEl.val(yiyuan);
+
+        if(yiyuan == ""){
+        	$("#yiyuan").removeClass().addClass("has-error");
+			layer.open({content: '请填写就诊医院!',skin: 'msg',time: 2});
+            return false;
+        }
+        else {
+			$("#yiyuan").removeClass().addClass("");
+            return false;
+        }
+    },
+	
+	checkKeshi : function() {
+        var keshiEl = $("#keshi"),
+            keshi = $.trim(keshiEl.val());
+
+        keshiEl.val(keshi);
+
+        if(keshi == ""){
+        	$("#keshi").removeClass().addClass("has-error");
+			layer.open({content: '请填写就诊科室!',skin: 'msg',time: 2});
+            return false;
+        }
+        else {
+			$("#keshi").removeClass().addClass("");
+            return false;
+        }
+    },
+	
+	checkYishi : function() {
+        var keshiEl = $("#yishi"),
+            yishi = $.trim(keshiEl.val());
+
+        keshiEl.val(yishi);
+
+        if(yishi == ""){
+        	$("#yishi").removeClass().addClass("has-error");
+			layer.open({content: '请填写主治医师!',skin: 'msg',time: 2});
+            return false;
+        }
+        else {
+			$("#yishi").removeClass().addClass("");
+            return false;
+        }
+    },
+	
+	checkName : function() {
+        var nameEl = $("#name"),
+            name = $.trim(nameEl.val());
+
+        nameEl.val(name);
+
+        if(name == ""){
+        	$("#name").removeClass().addClass("has-error");
+			layer.open({content: '请填写姓名!',skin: 'msg',time: 2});
+            return false;
+        }
+        else {
+			$("#name").removeClass().addClass("");
+            return false;
+        }
+    },
+	
+	checkIdCode : function() {
+        var idCodeEl = $("#idCode"),
+            idCode = $.trim(idCodeEl.val());
+
+        idCodeEl.val(idCode);
+
+        if(idCode == ""){
+        	$("#idCode").removeClass().addClass("has-error");
+			layer.open({content: '请填写身份证!',skin: 'msg',time: 2});
+            return false;
+        }
+        else {
+			$("#idCode").removeClass().addClass("");
+            return false;
+        }
+    },
+	
+	checkTelephone : function() {
+        var telephoneEl = $("#telephone"),
+            telephone = $.trim(telephoneEl.val());
+
+        telephoneEl.val(telephone);
+
+        if(telephone == ""){
+        	$("#telephone").removeClass().addClass("has-error");
+			layer.open({content: '请填写联系电话!',skin: 'msg',time: 2});
+            return false;
+        }
+        else {
+			$("#telephone").removeClass().addClass("");
+            return false;
+        }
+    },
+	
+	checkAddress : function() {
+        var addressEl = $("#address"),
+            address = $.trim(addressEl.val());
+
+        addressEl.val(address);
+
+        if(address == ""){
+        	$("#address").removeClass().addClass("has-error");
+			layer.open({content: '请填写联系电话!',skin: 'msg',time: 2});
+            return false;
+        }
+        else {
+			$("#address").removeClass().addClass("");
+            return false;
+        }
+    },
+	
+    checkSubmit : function() {
+
+        $("#chengshi") && Check.checkChengshi();
+		$("#yiyuan") && Check.checkYiyuan();
+		$("#keshi") && Check.checkKeshi();
+		$("#yishi") && Check.checkYishi();
+		$("#name") && Check.checkName();
+		$("#idCode") && Check.checkIdCode();
+        $("#telephone") && Check.checkTelephone();
+        $("#address") && Check.checkAddress();
+        
+        var hasError = $("#chengshi").hasClass("has-error")
+					|| $("#yiyuan").hasClass("has-error")
+					|| $("#keshi").hasClass("has-error")
+					|| $("#yishi").hasClass("has-error")
+					|| $("#name").hasClass("has-error")
+					|| $("#idCode").hasClass("has-error")
+					|| $("#telephone").hasClass("has-error")
+					|| $("#address").hasClass("has-error");
+
+        if (hasError) {
+			layer.open({content: '请填写正确的信息',skin: 'msg',time: 2});
+            return false;
+        }
+		else
+		{
+			var price = $("#price").val();
+			var chengshi = $("#chengshi").val();
+			var yiyuan = $("#yiyuan").val();
+			var keshi = $("#keshi").val();
+			var yishi = $("#yishi").val();
+			var name = $("#name").val();
+			var idCode = $("#idCode").val();
+			var telephone = $("#telephone").val();
+			var address = $("#address").val();
+			var data = {price:price,chengshi:chengshi,yiyuan:yiyuan,keshi:keshi,yishi:yishi,name:name,idCode:idCode,telephone:telephone,address:address};
+
+			$.ajax(
+				{
+                    url:"__URL__/editOrder/oid/{$list[0]['id']}",
+					data:data,
+					type:'POST',
+					dataType:'json',
+                    success:function(json){
+                        if(json.flag==1){
+                            layer.open({content: '修改成功',skin: 'msg',time: 2,
+                                end:function(index){
+                                    window.location.href="__ROOT__/Confirm/index/oid/"+json.oid;
+                                    layer.close(index);
+                                }
+                            });
+
+                        }else{
+                            layer.open({content: '请填写正确的检测申请信息!',skin: 'msg',time: 2,
+                                end:function(index){
+                                    location.reload();
+                                    layer.close(index);
+                                }
+                            });
+                        }
+                    }
+				}
+			)
+
+		}
+    },
+
+};
+
+
+
+
+</script>
+
+</body>
+</html>

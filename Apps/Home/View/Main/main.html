@@ -1,0 +1,150 @@
+<!doctype html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no"/>
+    <title>个人中心首页</title>
+    <!--js-->
+    <script src="__PUBLIC__/public/js/zepto.js" type="text/javascript" charset="utf-8"></script>
+    <script src="__PUBLIC__/public/js/common.js" type="text/javascript" charset="utf-8"></script>
+    <script src="__PUBLIC__/public/js/mui.min.js"></script>
+    <script src="__PUBLIC__/public/js/ali_font.js" type="text/javascript" charset="utf-8"></script>
+    <!--css-->
+    <link href="__PUBLIC__/public/css/mui.min.css" rel="stylesheet"/>
+    <link rel="stylesheet" type="text/css" href="__PUBLIC__/public/css/common.css"/>
+    <link rel="stylesheet" type="text/css" href="__PUBLIC__/public/css/user_center.css"/>
+    <link rel="stylesheet" type="text/css" href="__PUBLIC__/public/css/ali_font.css"/>
+    <script src="__PUBLIC__/public/layer_mobile/layer.js" type="text/javascript" charset="utf-8"></script>
+</head>
+<body>
+<div class="mui-content" id="app" style="display: block;">
+    <header class="mui-bar mui-bar-nav header">
+        <a class="mui-action-back mui-icon mui-icon-left-nav mui-pull-left white_color"></a>
+        <h1 class="mui-title white_color">我的</h1>
+    </header>
+    <div class="login_bg">
+        <img src="{$list[0]['headimgurl']}" class="photo">
+		<p class="p1">
+			<span class="label_l">用户：</span><span class="label_r">{$list[0]['username']}</span>
+            <!--<span class="label_l">昵称：</span><span class="label_r"><php>echo substr($list[0]['nickname'],0,9).'******'</php></span>-->
+			<div class="clear"></div>
+		</p>
+    </div>
+    <ul class="mui-table-view">
+        <li class="mui-table-view-cell">
+            <a class="mui-navigate-right" href="#">
+                <img src="__PUBLIC__/public/images/center_05.png" style="margin-top: -0.2rem;"/> 登录密码
+				<span class="fr state green_color">已设置</span>
+            </a>
+        </li>
+		
+		<li class="mui-table-view-cell">
+            <a class="mui-navigate-right" href="__ROOT__/Report/">
+                <img src="__PUBLIC__/public/images/center_12.png"/> 报告查询
+				<span class="fr state"></span>
+            </a>
+        </li>
+
+        <php>
+            if($list[0]['status']==1 && $list[0]['chengshi']!=""){
+        </php>
+        <li class="mui-table-view-cell">
+            <a class="mui-navigate-right" href="__ROOT__/DReport/">
+                <img src="__PUBLIC__/public/images/center_12.png"/> 患者报告查询
+                <span class="fr state"></span>
+            </a>
+        </li>
+        <php>
+            }
+        </php>
+		
+        <li class="mui-table-view-cell">
+            <a class="mui-navigate-right" href="__ROOT__/Doctor/">
+                <img src="__PUBLIC__/public/images/center_10.png"/> 医生认证
+                <php>
+
+                    if($list[0]['type']==2 || $list[0]['type']==3){
+                    echo "<span class='fr state'>未认证</span>";
+                    }else{
+                        if($list[0]['status']==0 && $list[0]['chengshi']==""){
+                            echo "<span class='fr state'>未认证</span>";
+                        }
+                        else if($list[0]['status']==0 && $list[0]['chengshi']!=""){
+                            echo "<span class='fr state green_color'>审核中</span>";
+                        }
+                        else if($list[0]['status']==1 && $list[0]['chengshi']!=""){
+                            echo "<span class='fr state green_color'>已认证</span>";
+                        }
+                        else{
+                            echo "<span class='fr state'>未认证</span>";
+                        }
+                    }
+
+                </php>
+            </a>
+        </li>
+
+
+		
+		<li class="mui-table-view-cell" style="border-bottom: 0;">
+            <a class="mui-navigate-right" href="tel:4001697998">
+                <img src="__PUBLIC__/public/images/center_15.png"/> 联系客服
+            </a>
+        </li>
+    </ul>
+
+    <!--<div class="btn" style="margin-top: 0.4rem;" id="loginOut" onclick="loginOut()">退出登录</div>-->
+
+</div>
+<nav class="mui-bar mui-bar-tab" style="height: 1.96rem;color: #666666;font-size: 0.56rem;">
+    <a class="mui-tab-item" href="__ROOT__">
+        <span class="mui-icon iconfont icon-home"></span>
+        <span class="mui-tab-label">首页</span>
+    </a>
+    <a class="mui-tab-item" href="__ROOT__/MyOrder/">
+        <span class="mui-icon iconfont icon-dingdan"></span>
+        <span class="mui-tab-label">订单</span>
+    </a>
+    <a class="mui-tab-item" href="__ROOT__/Message/">
+        <span class="mui-icon iconfont icon-xiaoxi"></span>
+        <span class="mui-tab-label">消息</span>
+    </a>
+    <a class="mui-tab-item mui-active" href="__ROOT__/Main/">
+        <span class="mui-icon iconfont icon-people"></span>
+        <span class="mui-tab-label">我的</span>
+    </a>
+</nav>
+
+<script>
+    function loginOut() {
+        var data = {loginOut:1};
+        $.ajax(
+            {
+                url:'__ROOT__/Main/loginOut',
+                data:data,
+                type:'POST',
+                dataType:'json',
+                async:false,
+                success:function(json){
+                    if(json.flag==1){
+                        layer.open({content: '退出成功!',skin: 'msg',time: 2,
+                            end:function(index){
+                                window.location.href="__ROOT__";
+                            }
+                        });
+                    }else{
+                        layer.open({content: '退出失败!',skin: 'msg',time: 2,
+                            end:function(index){
+                                location.reload();
+                                layer.close(index);
+                            }
+                        });
+                    }
+                }
+            }
+        )
+    }
+</script>
+
+</body>
+</html>

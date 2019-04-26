@@ -1,0 +1,221 @@
+
+<!doctype html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no"/>
+    <title>收银台</title>
+    <!--js-->
+    <script src="__PUBLIC__/public/js/zepto.js" type="text/javascript" charset="utf-8"></script>
+	<script src="__PUBLIC__/public/js/mui.min.js" type="text/javascript" charset="utf-8"></script>
+    <script src="__PUBLIC__/public/js/common.js" type="text/javascript" charset="utf-8"></script>
+	
+    <!--css-->
+    <link href="__PUBLIC__/public/css/mui.min.css" rel="stylesheet"/>
+    <link rel="stylesheet" type="text/css" href="__PUBLIC__/public/css/common.css"/>
+    <link rel="stylesheet" type="text/css" href="__PUBLIC__/public/css/check.css"/>
+    <link rel="stylesheet" type="text/css" href="__PUBLIC__/public/css/fund_jd_reg.css"/>
+    <link rel="stylesheet" type="text/css" href="__PUBLIC__/public/css/sc_order.css"/>
+	<script src="__PUBLIC__/public/layer_mobile/layer.js" type="text/javascript" charset="utf-8"></script>
+</head>
+
+<body>
+<header class="mui-bar mui-bar-nav red_bg">
+    <a href="__ROOT__/Order/edit/oid/{$list[0]['id']}" class="mui-icon mui-icon-left-nav mui-pull-left white_color"></a>
+    <h1 class="mui-title white_color">支付信息</h1>
+    <i class="xq"></i>
+</header>
+<div class="mui-content" id="app" style="display: block;">
+    <form class="mui-input-group" style="margin-top: 0.4rem;">
+        <div class="mui-input-row">
+            <label>就诊城市：</label>
+            <span style="font-size:0.6rem;">{$list[0]['chengshi']}</span>
+        </div>
+        <div class="mui-input-row">
+            <label>就诊医院：</label>
+            <span style="font-size:0.6rem;">{$list[0]['yiyuan']}</span>
+        </div>
+		<div class="mui-input-row">
+            <label>就诊科室：</label>
+            <span style="font-size:0.6rem;">{$list[0]['keshi']}</span>
+        </div>
+		<div class="mui-input-row">
+            <label>主治医师：</label>
+            <span style="font-size:0.6rem;">{$list[0]['yishi']}</span>
+        </div>
+    </form>
+    
+    <form class="mui-input-group" style="margin-top: 0.4rem;">
+        <div class="mui-input-row">
+            <label>姓名：</label>
+            <span style="font-size:0.6rem;">{$list[0]['name']}</span>
+        </div>
+        <div class="mui-input-row">
+            <label>身份证：</label>
+            <span style="font-size:0.6rem;">{$list[0]['idcode']}</span>
+        </div>
+		<div class="mui-input-row">
+            <label>联系电话：</label>
+            <span style="font-size:0.6rem;">{$list[0]['telephone']}</span>
+        </div>
+		<div class="mui-input-row">
+            <label>患者地址：</label>
+            <span style="font-size:0.6rem;">{$list[0]['address']}</span>
+        </div>
+    </form>
+	
+	<input type="hidden" name="payType" id="payType" value="0" />
+    <input type="hidden" name="openid" id="openid" value="{$list[0]['openid']}" />
+    <input type="hidden" name="ordernum" id="ordernum" value="{$list[0]['ordernum']}" />
+    <input type="hidden" name="title" id="title" value="检测申请支付" />
+    <input type="hidden" name="total_fee" id="total_fee" value="{$list[0]['price']}" />
+	
+    <div class="dou_check" style="margin-top:20px;">
+        <ul>
+            <li class="table_li" onclick="payTypeChange(0)">
+                <img src="__PUBLIC__/public/images/weixin.png " class="wx_icon"> 微信支付
+                <span class="fr">
+					<i class="green_icon" id="wx_selected" ></i>
+					<i class="red_icon" id="wx_unselected" style="display:block;"></i>
+				</span>
+            </li>
+            <li class="table_li" onclick="payTypeChange(1)">
+                <img src="__PUBLIC__/public/images/xianxia.png" class="zfb_icon"> 线下支付
+                <span class="fr">
+					<i class="green_icon" id="xx_selected" ></i>
+					<i class="red_icon" id="xx_unselected"></i>
+				</span>
+            </li>
+        </ul>
+    </div>
+    <div class="red_btn red_bg white_color" style="width: 94%;" id="pay_button" onclick="callpay()">立即支付<span>￥{$list[0]['price']}</span></div>
+
+</div>
+<script>
+
+
+var result;
+window.onload=getjsApiParameters();
+var jsApiParameters=JSON.parse(result);
+
+function jsApiCall()
+{
+    WeixinJSBridge.invoke(
+        'getBrandWCPayRequest',
+        {
+            "appId":jsApiParameters.appId,
+            "nonceStr":jsApiParameters.nonceStr,
+            "package": jsApiParameters.package,
+            "paySign": jsApiParameters.paySign,
+            "signType": jsApiParameters.signType,
+            "timeStamp": jsApiParameters.timeStamp
+        },
+        function(res){
+            WeixinJSBridge.log(res.err_msg);
+            
+            if(res.err_msg=='get_brand_wcpay_request:ok'){
+                layer.open({content: '微信支付成功!',skin: 'msg',time: 3,
+                    end:function(index){
+                        window.location.href="__ROOT__/MyOrder";
+                    }
+                });
+            }
+
+
+        }
+    );
+}
+
+function callpay()
+{
+    if (typeof WeixinJSBridge == "undefined"){
+        if( document.addEventListener ){
+            document.addEventListener('WeixinJSBridgeReady', jsApiCall, false);
+        }else if (document.attachEvent){
+            document.attachEvent('WeixinJSBridgeReady', jsApiCall);
+            document.attachEvent('onWeixinJSBridgeReady', jsApiCall);
+        }
+    }else{
+        jsApiCall();
+    }
+}
+
+function payTypeChange(type){
+    $("#payType").val(type);
+    if(type==0){
+        $('#wx_unselected').css('display', 'block');
+        $('#xx_unselected').css('display', '');
+        $('#pay_button').attr('onclick','callpay()');
+    }
+    else{
+        $('#wx_unselected').css('display', '');
+        $('#xx_unselected').css('display', 'block');
+        $('#pay_button').attr('onclick','changeStatus()');
+    }
+}
+
+function changeStatus() {
+
+    var openid = $("#openid").val();
+    var ordernum = $("#ordernum").val();
+
+    var data = {openid:openid,ordernum:ordernum};
+    $.ajax(
+        {
+            url:'__ROOT__/Confirm/change',
+            data:data,
+            type:'POST',
+            dataType:'json',
+            async:false,
+            success:function(json){
+                if(json.flag==1){
+                    layer.open({content: '请及时联系我们线下支付!',skin: 'msg',time: 3,
+                        end:function(index){
+                            window.location.href="__ROOT__/Main";
+                        }
+                    });
+                }else{
+                    layer.open({content: '提交失败!',skin: 'msg',time: 2,
+                        end:function(index){
+                            location.reload();
+                            layer.close(index);
+                        }
+                    });
+                }
+            }
+        }
+    )
+}
+
+function getjsApiParameters() {
+
+    var openid = $("#openid").val();
+    var ordernum = $("#ordernum").val();
+    var title = $("#title").val();
+    var total_fee = $("#total_fee").val();
+    var payType = $("#payType").val();
+
+    var data = {openid:openid,ordernum:ordernum,title:title,total_fee:total_fee,payType:payType};
+    $.ajax(
+        {
+            url:'__ROOT__/Pay/pay',
+            data:data,
+            type:'POST',
+            dataType:'json',
+            async:false,
+            success:function(json){
+                if(json.jsApiParameters!=""){
+                    result=json.jsApiParameters;
+                }else{
+                    result='';
+                }
+            }
+        }
+    )
+}
+
+</script>
+
+</body>
+</html>

@@ -1,0 +1,197 @@
+<!doctype html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no"/>
+    <title></title>
+    <!--js-->
+    <script src="__PUBLIC__/public/js/zepto.js" type="text/javascript" charset="utf-8"></script>
+    <script src="__PUBLIC__/public/js/common.js" type="text/javascript" charset="utf-8"></script>
+    <script src="__PUBLIC__/public/js/mui.min.js" type="text/javascript" charset="utf-8"></script>
+    <script src="__PUBLIC__/public/js/vue.js" type="text/javascript" charset="utf-8"></script>
+	<script src="__PUBLIC__/public/layer_mobile/layer.js" type="text/javascript" charset="utf-8"></script>
+    <script src="__PUBLIC__/public/js/ali_font.js" type="text/javascript" charset="utf-8"></script>
+    <link rel="stylesheet" type="text/css" href="__PUBLIC__/public/css/ali_font.css"/>
+    <!--css-->
+    <link rel="stylesheet" type="text/css" href="__PUBLIC__/public/css/mui.min.css"/>
+    <link rel="stylesheet" type="text/css" href="__PUBLIC__/public/css/common.css"/>
+    <link rel="stylesheet" type="text/css" href="__PUBLIC__/public/css/user_reg.css"/>
+</head>
+<body>
+<header class="mui-bar mui-bar-nav red_bg">
+    <a href="__ROOT__/Login/" class=" mui-icon mui-icon-left-nav mui-pull-left white_color"></a>
+    <h1 class="mui-title white_color">注册</h1>
+</header>
+<div class="mui-content app_show" id="app">
+    <form class="mui-input-group">
+        <div class="mui-input-row">
+            <label><i class="phone"></i></label>
+            <input type="text" name="telephone" id="telephone" placeholder="请输入手机号" maxlength="11">
+        </div>
+        <div class="mui-input-row">
+            <label><i class="lock"></i></label>
+            <input type="password" name="password" id="password" class="mui-input-password" placeholder="请输入6-18位密码" maxlength="18">
+        </div>
+        <div class="mui-input-row">
+            <label><i class="email"></i></label>
+            <input type="text" name="smsCode" id="smsCode" placeholder="请输入短信验证码" maxlength="6">
+            <span class="yzm" id="smscodeBtn" >获取验证码</span>
+        </div>
+        <div class="mui-button-row">
+            <button type="button" id="reg" class="mui-btn red_bg login_btn">注册</button>
+        </div>
+        <div class="xy"><i class="agree"></i>我已阅读并同意<a href="#">《检测申请用户服务协议》</a></div>
+    </form>
+</div>
+
+<nav class="mui-bar mui-bar-tab" style="height: 1.96rem;color: #666666;font-size: 0.56rem;">
+    <a class="mui-tab-item" href="__ROOT__">
+        <span class="mui-icon iconfont icon-home"></span>
+        <span class="mui-tab-label">首页</span>
+    </a>
+    <a class="mui-tab-item" href="__ROOT__/MyOrder/">
+        <span class="mui-icon iconfont icon-dingdan"></span>
+        <span class="mui-tab-label">订单</span>
+    </a>
+    <a class="mui-tab-item" href="__ROOT__/Message/">
+        <span class="mui-icon iconfont icon-xiaoxi"></span>
+        <span class="mui-tab-label">消息</span>
+    </a>
+    <a class="mui-tab-item" href="__ROOT__/Main/">
+        <span class="mui-icon iconfont icon-people"></span>
+        <span class="mui-tab-label">我的</span>
+    </a>
+</nav>
+
+<script>
+
+var checkResult = {};
+var Check = {
+    checkTelephone : function() {
+        var telephoneEl = $("#telephone"),
+            telephone = $.trim(telephoneEl.val());
+
+        telephoneEl.val(telephone);
+
+        if(telephone == ""){
+        	$("#telephone").removeClass().addClass("has-error");
+			layer.open({content: '请填写手机号!',skin: 'msg',time: 2});
+            return false;
+        }else if(!(/^1[34578]\d{9}$/.test(telephone))){
+			$("#telephone").removeClass().addClass("has-error");
+			layer.open({content: '请填写正确的手机号!',skin: 'msg',time: 2});
+            return false;
+		}
+        else {
+			$("#telephone").removeClass().addClass("");
+            return false;
+        }
+    },
+	
+	checkPassword : function() {
+        var passwordEl = $("#password"),
+            password = $.trim(passwordEl.val());
+
+        passwordEl.val(password);
+
+        if(password == ""){
+        	$("#password").removeClass().addClass("mui-input-password has-error");
+			layer.open({content: '请填写密码!',skin: 'msg',time: 2});
+            return false;
+        }
+        else {
+			$("#password").removeClass().addClass("mui-input-password");
+            return false;
+        }
+    },
+	
+	checkSmsCode : function() {
+        var smsCodeEl = $("#smsCode"),
+            smsCode = $.trim(smsCodeEl.val());
+
+        smsCodeEl.val(smsCode);
+
+        if(smsCode == ""){
+        	$("#smsCode").removeClass().addClass("has-error");
+			layer.open({content: '请填写验证码!',skin: 'msg',time: 2});
+            return false;
+        }
+        else {
+			$("#smsCode").removeClass().addClass("");
+            return false;
+        }
+    },
+	
+    checkSubmit : function() {
+
+        $("#telephone") && Check.checkTelephone();
+		$("#password") && Check.checkPassword();
+		//$("#smsCode") && Check.checkSmsCode();
+        
+        var hasError = $("#telephone").hasClass("has-error")
+					|| $("#password").hasClass("has-error");
+
+        if (hasError) {
+			layer.open({content: '请填写正确的信息',skin: 'msg',time: 2});
+            return false;
+        }
+		else
+		{
+			var telephone = $("#telephone").val();
+			var password = $("#password").val();
+			var smsCode = $("#smsCode").val();
+			var data = {telephone:telephone,password:password};
+
+			$.ajax(
+				{
+					url:'__URL__/reg',
+					data:data,
+					type:'POST',
+					dataType:'json',
+                    success:function(json){
+                        if(json.flag==1){
+                            layer.open({content: '注册成功!',skin: 'msg',time: 2,
+                                end:function(index){
+                                    window.location.href="__ROOT__/Login";
+                                    layer.close(index);
+                                }
+                            });
+                        }else if(json.flag==3){
+                            layer.open({content: '手机号已注册!',skin: 'msg',time: 2,
+                                end:function(index){
+                                    location.reload();
+                                    layer.close(index);
+                                }
+                            });
+                        }
+                        else{
+                            layer.open({content: '注册失败,填写正确的信息!',skin: 'msg',time: 2,
+                                end:function(index){
+                                    location.reload();
+                                    layer.close(index);
+                                }
+                            });
+                        }
+                    }
+				}
+			)
+
+		}
+    },
+
+};
+
+
+$(document).ready(function(){
+	
+	$("#telephone").blur(Check.checkTelephone);
+	$("#password").blur(Check.checkPassword);
+	$("#smsCode").blur(Check.checkSmsCode);
+	$("#reg").click(Check.checkSubmit);
+	
+});
+
+</script>
+
+</body>
+</html>

@@ -1,0 +1,179 @@
+<!doctype html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no"/>
+    <title>上海优甲医疗</title>
+    <meta name="keywords" content="上海优甲医疗">
+    <meta name="description"
+          content="上海优甲医疗">
+    <!--js-->
+    <script src="__PUBLIC__/public/js/zepto.js" type="text/javascript" charset="utf-8"></script>
+    <script src="__PUBLIC__/public/js/config.js" type="text/javascript" charset="utf-8"></script>
+    <script src="__PUBLIC__/public/js/common.js" type="text/javascript" charset="utf-8"></script>
+    <script src="__PUBLIC__/public/js/mui.min.js"></script>
+    <script src="__PUBLIC__/public/js/vue.js" type="text/javascript" charset="utf-8"></script>
+    <script src="__PUBLIC__/public/js/ali_font.js" type="text/javascript" charset="utf-8"></script>
+    <script src="__PUBLIC__/public/js/zepto_fx.js" type="text/javascript" charset="utf-8"></script>
+    <script src="__PUBLIC__/public/js/index.js" type="text/javascript" charset="utf-8"></script>
+    <!--css-->
+    <link href="__PUBLIC__/public/css/mui.min.css" rel="stylesheet"/>
+    <link rel="stylesheet" type="text/css" href="__PUBLIC__/public/css/common.css"/>
+    <link rel="stylesheet" type="text/css" href="__PUBLIC__/public/css/index.css"/>
+    <link rel="stylesheet" type="text/css" href="__PUBLIC__/public/css/ali_font.css"/>
+    <style>
+        .mui-col {
+            display: inline-block;
+        }
+    </style>
+</head>
+<body>
+<div class="mui-content app_show">
+    <div class="top_bar">
+        <img src="__PUBLIC__/public/images/logo.png" class="logo"/>
+        <div class="wrap_img"></div>
+        <a href="tel:4001697998"><img src="__PUBLIC__/public/images/kefu.png" class="kefu "/></a>
+    </div>
+    <div id="slider" class="mui-slider">
+        <div class="mui-slider-group mui-slider-loop">
+            <!-- 额外增加的一个节点(循环轮播：第一个节点是最后一张轮播) -->
+            <div class="mui-slider-item mui-slider-item-duplicate">
+                <a href="#">
+                    <img src="__PUBLIC__/public/images/banner.jpg">
+                </a>
+            </div>
+            <!-- 第一张 -->
+            <div class="mui-slider-item">
+                <a href="javascript:;">
+                    <img src="__PUBLIC__/public/images/banner.jpg">
+                </a>
+            </div>
+
+            <!-- 额外增加的一个节点(循环轮播：最后一个节点是第一张轮播) 
+            <div class="mui-slider-item mui-slider-item-duplicate">
+                <a href="#">
+                    <img src="__PUBLIC__/public/images/banner.jpg">
+                </a>
+            </div>-->
+        </div>
+        <div class="mui-slider-indicator">
+            <div class="mui-indicator mui-active"></div>
+            <!--<div class="mui-indicator"></div>-->
+        </div>
+        <img src="__PUBLIC__/public/images/bannerzhezhao.png" class="fix_img"/>
+    </div>
+    <div id="app">
+        <ul class="mui-table-view mui-grid-view mui-grid-9 menu">
+            <li class="mui-table-view-cell mui-media mui-col-xs-6 mui-col-sm-6">
+                <a href="__ROOT__/Notice/">
+                    <img src="__PUBLIC__/public/images/in_1.png" class="jgg">
+                    <div class="mui-media-body">检测申请</div>
+                </a>
+            </li>
+            <li class="mui-table-view-cell mui-media mui-col-xs-6 mui-col-sm-6">
+                <a href="__ROOT__/Report/">
+                    <img src="__PUBLIC__/public/images/in_2.png" class="jgg">
+                    <div class="mui-media-body">报告查询</div>
+                </a>
+            </li>
+            <!--
+            <if condition="$list[0]['username']==''">
+                <li class="mui-table-view-cell mui-media mui-col-xs-4 mui-col-sm-4">
+                    <a href="__ROOT__/Login/">
+                        <img src="__PUBLIC__/public/images/in_3.png" class="jgg">
+                        <div class="mui-media-body">登录注册</div>
+                    </a>
+                </li>
+            </if>
+            <if condition="$list[0]['username']!==''">
+                <li class="mui-table-view-cell mui-media mui-col-xs-4 mui-col-sm-4">
+                    <a href="__ROOT__/Main/">
+                        <img src="__PUBLIC__/public/images/in_3.png" class="jgg">
+                        <div class="mui-media-body">会员中心</div>
+                    </a>
+                </li>
+            </if>
+            -->
+        </ul>
+        <div class="least">
+            <img src="__PUBLIC__/public/images/chengjiao.png" class="cj">
+            <div class="over">
+                <div class="ul">
+                    <volist name="listOrder" id="vo" empty="$empty">
+                        <div class="li">
+                            <img src="{$vo['headimgurl']}" class="user_img">
+                            <span class="li_p">
+                                <span class="mui-e"><php>echo substr($vo['username'],0,3).'********'</php></span>
+                                <span class="mui-e">在线提交了检测申请</span>
+                            </span>
+                        </div>
+                    </volist>
+
+                </div>
+
+            </div>
+            <div class="clear"></div>
+        </div>
+        <div class="hote_game">
+            <i class="hot"></i>便捷入口
+        </div>
+        <ul class="mui-table-view mui-grid-view mui-grid-9 game">
+            <!--
+            <li class="mui-table-view-cell mui-media mui-col-xs-4 mui-col-sm-4">
+                <a href="__ROOT__/MyOrder/">
+                    <img src="__PUBLIC__/public/images/in_4.png" class="game_img">
+                    <div class="mui-media-body">
+                        <p class="p1">我的订单</p>
+
+                    </div>
+                </a>
+            </li>
+            -->
+            <li class="mui-table-view-cell mui-media mui-col-xs-6 mui-col-sm-6">
+                <if condition="$list[0]['openid']==''">
+                <a href="__ROOT__/Member/">
+                </if>
+                <if condition="$list[0]['openid']!==''">
+                <a href="__ROOT__/MemOrder/">
+                </if>
+                    <img src="__PUBLIC__/public/images/in_5.png" class="game_img">
+                    <div class="mui-media-body">
+                        <p class="p1">员工通道</p>
+                    </div>
+                </a>
+            </li>
+            <li class="mui-table-view-cell mui-media mui-col-xs-6 mui-col-sm-6">
+                <a href="__ROOT__/Doctor">
+                    <img src="__PUBLIC__/public/images/in_6.png" class="game_img">
+                    <div class="mui-media-body">
+                        <p class="p1">医生通道</p>
+                    </div>
+                </a>
+            </li>
+        </ul>
+        <div style="margin-top: 0.3rem;"><a href="tel:4001697998"><img src="__PUBLIC__/public/images/tel_banner.jpg" /></a></div>
+        <p class="bb" style="margin-top:10px;">
+            <a href="#">上海优甲医疗版权所有</a>
+        </p>
+    </div>
+</div>
+<nav class="mui-bar mui-bar-tab" style="height: 1.96rem;color: #666666;font-size: 0.56rem;">
+    <a class="mui-tab-item mui-active" href="__ROOT__">
+        <span class="mui-icon iconfont icon-home"></span>
+        <span class="mui-tab-label">首页</span>
+    </a>
+    <a class="mui-tab-item" href="__ROOT__/MyOrder/">
+        <span class="mui-icon iconfont icon-dingdan"></span>
+        <span class="mui-tab-label">订单</span>
+    </a>
+    <a class="mui-tab-item" href="__ROOT__/Message/">
+        <span class="mui-icon iconfont icon-xiaoxi"></span>
+        <span class="mui-tab-label">消息</span>
+    </a>
+    <a class="mui-tab-item" href="__ROOT__/Main/">
+        <span class="mui-icon iconfont icon-people"></span>
+        <span class="mui-tab-label">我的</span>
+    </a>
+</nav>
+</body>
+</html>

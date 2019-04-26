@@ -1,0 +1,310 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <link href="__PUBLIC__/admin/assets/css/bootstrap.min.css" rel="stylesheet" />
+    <link rel="stylesheet" href="__PUBLIC__/admin/css/style.css"/>
+    <link href="__PUBLIC__/admin/assets/css/codemirror.css" rel="stylesheet">
+    <link rel="stylesheet" href="__PUBLIC__/admin/assets/css/ace.min.css" />
+    <link rel="stylesheet" href="__PUBLIC__/admin/assets/css/font-awesome.min.css" />
+    <!--[if IE 7]>
+    <link rel="stylesheet" href="__PUBLIC__/admin/assets/css/font-awesome-ie7.min.css" />
+    <![endif]-->
+    <!--[if lte IE 8]>
+    <link rel="stylesheet" href="__PUBLIC__/admin/assets/css/ace-ie.min.css" />
+    <![endif]-->
+    <script src="__PUBLIC__/admin/assets/js/jquery.min.js"></script>
+    <!-- <![endif]-->
+
+    <!--[if IE]>
+    <script src="http://ajax.useso.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
+    <![endif]-->
+
+    <!--[if !IE]> -->
+    <script type="text/javascript">
+        window.jQuery || document.write("<script src='__PUBLIC__/admin/assets/js/jquery-2.0.3.min.js'>"+"<"+"/script>");
+    </script>
+
+    <!-- <![endif]-->
+
+    <!--[if IE]>
+    <script type="text/javascript">
+        window.jQuery || document.write("<script src='__PUBLIC__/admin/assets/js/jquery-1.10.2.min.js'>"+"<"+"/script>");
+    </script>
+    <![endif]-->
+
+    <script type="text/javascript">
+        if("ontouchend" in document) document.write("<script src='__PUBLIC__/admin/assets/js/jquery.mobile.custom.min.js'>"+"<"+"/script>");
+    </script>
+    <script src="__PUBLIC__/admin/assets/js/bootstrap.min.js"></script>
+    <script src="__PUBLIC__/admin/assets/js/typeahead-bs2.min.js"></script>
+    <!-- page specific plugin scripts
+    <script src="__PUBLIC__/admin/assets/js/jquery.dataTables.min.js"></script>
+    <script src="__PUBLIC__/admin/assets/js/jquery.dataTables.bootstrap.js"></script>
+    -->
+    <script src="__PUBLIC__/admin/assets/layer/layer.js" type="text/javascript"></script>
+    <script src="__PUBLIC__/admin/assets/laydate/laydate.js" type="text/javascript"></script>
+
+    <link rel="stylesheet" href="__PUBLIC__/admin/editor/themes/default/default.css" />
+    <link rel="stylesheet" href="__PUBLIC__/admin/editor/plugins/code/prettify.css" />
+    <script charset="utf-8" src="__PUBLIC__/admin/editor/kindeditor.js"></script>
+    <script charset="utf-8" src="__PUBLIC__/admin/editor/lang/zh_CN.js"></script>
+    <script charset="utf-8" src="__PUBLIC__/admin/editor/plugins/code/prettify.js"></script>
+    <script charset="utf-8" src="__PUBLIC__/admin/js/showdate.js"></script>
+    <title>编辑文章</title>
+
+    <style>
+        .text_time{
+            width: 207px;
+            height: 35px;
+            background: #ffffff;
+            border:1px solid #56da9e;
+        }
+    </style>
+</head>
+<body>
+<div class="clearfix" id="add_picture">
+    <div class="page_right_style" style="left:0px;width: 100%;">
+        <div class="type_title">添加优惠券</div>
+        <input type="hidden" id="id" name="id" value="{$list[0].id}" />
+        <div class="form form-horizontal" id="form-article-add">
+            <div class="clearfix cl">
+                <label class="col-lg-2 col-md-2 col-sm-12 control-label"><span class="c-red" style="color:red;">*&nbsp;&nbsp;</span>使用范围：</label>
+                <div class="col-lg-8 col-md-8" >
+                    <div id="">
+                        <label for="albumid">
+                            <input type="radio" value="1" placeholder="" name="albumid" id="albumid">指定专辑可用
+                        </label>
+                        &nbsp;&nbsp;&nbsp;&nbsp;
+                        <select name="album_id" id="" style="height:32px;">
+                            <option value="0">请选择专辑</option>
+                            <volist name="albums" id="vo" empty="$empty">
+                                <option value="{$vo.id}">{$vo.name}</option>
+                            </volist>
+                        </select>
+                    </div>
+                </div>
+            </div>
+            <div class="clearfix cl">
+                <label class="col-lg-2 col-md-2 col-sm-12 control-label"></label>
+                <div class="col-lg-8 col-md-8" >
+                    <div id="">
+                        <label for="albumall">
+                            <input type="radio" value="0" placeholder="" name="albumid"  checked="checked"  id="albumall">全专辑可用
+                        </label>
+                    </div>
+                </div>
+            </div>
+
+
+
+            <div class="clearfix cl">
+                <label class="col-lg-2 col-md-2 col-sm-12 control-label"><span class="c-red" style="color:red;">*&nbsp;&nbsp;</span>优惠方式：</label>
+                <div class="col-lg-8 col-md-8">
+                    <label for="preferential">
+                        <input type="radio" value="0" placeholder="" name="type" checked="checked"  id="preferential">优惠金额
+                    </label>
+                    &nbsp;&nbsp;&nbsp;&nbsp;
+                    <input type="text" class="" value="" placeholder=""  name="preferential">
+                </div>
+            </div>
+            <div class="clearfix cl">
+                <label class="col-lg-2 col-md-2 col-sm-12 control-label"></label>
+                <div class="col-lg-8 col-md-8">
+                    <label for="discount">
+                        <input type="radio" value="1" placeholder="" name="type" id="discount">优惠折扣
+                    </label>
+                    &nbsp;&nbsp;&nbsp;&nbsp;
+                    <input type="text" class="" value="" placeholder=""  name="discount"> 折
+                </div>
+            </div>
+
+              <!--  <div class="clearfix cl">
+                    <label class="col-lg-2 col-md-2 col-sm-12 control-label">内容摘要：</label>
+                    <div class="col-lg-8 col-md-8">
+                        <textarea name="description" id="description" style="width:100%;height:80px;" placeholder="说点什么...最少输入10个字符" datatype="*10-100" dragonfly="true" nullmsg="备注不能为空！" onKeyUp="textarealength(this,200)">{$list[0].description}</textarea>
+                    </div>
+                </div>-->
+            <div class="clearfix cl">
+                <div>
+                    <label class="col-lg-2 col-md-2 col-sm-12 control-label"><span class="c-red" style="color:red;">*&nbsp;&nbsp;</span>有效时间：</label>
+                    <div class="col-lg-8 col-md-8" style="padding-top: 8px;">
+                        <label for="validityall">
+                            <input type="radio" value="0" name="validitytype" checked="checked"  id="validityall">永久有效
+                        </label>
+                    </div>
+                </div>
+            </div>
+            <div class="clearfix cl">
+                <label class="col-lg-2 col-md-2 col-sm-12 control-label"></label>
+                <div class="col-lg-8 col-md-8">
+                    <label for="validitydate">
+                        <input type="radio" value="1" placeholder="" name="validitytype" id="validitydate">有效期截止到
+                    </label>
+
+                    &nbsp;&nbsp;&nbsp;&nbsp;
+
+                        <input type="text" id="time" name="validity" value="选择时间" onClick="return Calendar('time');" class="text_time"/>
+
+
+                </div>
+            </div>
+
+            <div class="clearfix cl">
+                <div>
+                    <label class="col-lg-2 col-md-2 col-sm-12 control-label"><span class="c-red" style="color:red;">*&nbsp;&nbsp;</span>发放数量：</label>
+                    <div class="col-lg-8 col-md-8" style="padding-top: 8px;">
+                        <label for="infinite">
+                            <input type="radio" value="0" name="number" checked="checked"  id="infinite">不限量
+                        </label>
+                    </div>
+                </div>
+            </div>
+            <div class="clearfix cl">
+                <label class="col-lg-2 col-md-2 col-sm-12 control-label"></label>
+                <div class="col-lg-8 col-md-8">
+                    <label for="limit">
+                        <input type="radio" value="1" placeholder="" name="number" id="limit">限量
+                    </label>
+                    &nbsp;&nbsp;&nbsp;&nbsp;
+                    <input type="text" class="" value="" placeholder=""  name="allnumber">
+                </div>
+            </div>
+
+            <div class="clearfix cl">
+                <div>
+                    <label class="col-lg-2 col-md-2 col-sm-12 control-label"><span class="c-red" style="color:red;">*&nbsp;&nbsp;</span>使用门槛：</label>
+                    <div class="col-lg-8 col-md-8" style="padding-top: 8px;">
+                        <label for="nofull">
+                            <input type="radio" value="0" name="full" checked="checked"  id="nofull">无门槛
+                        </label>
+                    </div>
+                </div>
+            </div>
+            <div class="clearfix cl">
+                <label class="col-lg-2 col-md-2 col-sm-12 control-label"></label>
+                <div class="col-lg-8 col-md-8">
+                    <label for="isfull">
+                        <input type="radio" value="1" placeholder="" name="full" id="isfull">满
+                    </label>
+                    &nbsp;&nbsp;&nbsp;&nbsp;
+                    <input type="text" class="" value="" placeholder=""  name="fulllimit"> 可用
+                </div>
+            </div>
+
+            <div class="clearfix cl">
+                <div class="Button_operation">
+                    <button class="btn btn-primary radius" type="button" id="f_submit"><i class="icon-save "></i>保存</button>
+                    <button class="btn btn-default radius" type="reset"  onclick="history.back()">&nbsp;&nbsp;取消&nbsp;&nbsp;</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+</div>
+<script>
+
+    var Check = {
+
+
+        checkSubmit : function() {
+
+            var album_id='';    //专辑id
+            var discount='';    //折扣
+            var preferential='';//优惠金额
+            var validity='';    //有效期
+            var number='';      //发放数量
+            var full='';        //门槛
+            //知否指定专辑  1 指定专辑 0全通用
+            var albumid=$("input[name='albumid']:checked").val();
+            if (albumid==1){
+                album_id=$("select[name='album_id']").val();
+            }else{
+                album_id=0
+            }
+            //优惠方式  1折扣 0金额
+            var type=$("input[name='type']:checked").val()
+            if (type==1){
+                discount=$("input[name='discount']").val();
+                preferential=0;
+                if(discount==''){
+                    layer.msg('请填写折扣信息!',{icon:2,time:1000},function(){});
+                    return;
+                }
+            }else{
+                preferential=$("input[name='preferential']").val();
+                discount=0;
+                if(preferential==''){
+                    layer.msg('请填写优惠信息!',{icon:2,time:1000},function(){});
+                    return;
+                }
+            }
+            //有效时间 validitytype 0 永久有效 1有效时间
+            var validitytype=$("input[name='validitytype']:checked").val();
+            if (validitytype==0){
+                validity='NAN'
+            }else{
+                validity=$("input[name='validity']").val();
+            }
+
+            //发放数量 number  0不限量 1限量
+            var hasnumber=$("input[name='number']:checked").val();
+            if(hasnumber==0){
+                number='NAN'
+            }else{
+                number=$("input[name='allnumber']").val();
+            }
+
+            //使用门槛  full 0 无门槛 1有门槛
+            var isfull=$("input[name='full']:checked").val();
+            if(isfull==0){
+                full='NAN';
+            }else{
+                full=$("input[name='fulllimit']").val();
+            }
+
+            var data = {album_id:album_id,discount:discount,preferential:preferential,validity:validity,number:number,full:full};
+            console.log(data);
+            if(validity=='' || number=='' || full==''){
+                layer.msg('请填写完整信息!',{icon:2,time:1000},function(){});
+                return;
+            }
+
+            var data = {album_id:album_id,discount:discount,preferential:preferential,validity:validity,number:number,full:full};
+
+
+
+            $.ajax(
+                {
+                    url:'__URL__/savecoupon',
+                    data:data,
+                    type:'POST',
+                    dataType:'json',
+                    success:function(json){
+                        
+                        if(json.status==1){
+                            layer.msg('成功!',{icon:1,time:2000},function(){
+                                window.location.href="__URL__";
+                                //parent.location.reload(); // 父页面刷新
+                                var index = parent.layer.getFrameIndex(window.name); //获取窗口索引
+                                parent.layer.close(index);
+                            });
+                        }else{
+                            layer.msg('失败!',{icon:2,time:1000},function(){return false;});
+                        }
+                    }
+                }
+            )
+
+    },
+
+    };
+    $(document).ready(function(){
+
+        $("#f_submit").click(Check.checkSubmit);
+
+    });
+
+</script>
+</body>
+</html>

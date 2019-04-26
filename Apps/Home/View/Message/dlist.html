@@ -1,0 +1,84 @@
+<!doctype html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no"/>
+    <title>线上留言</title>
+    <!--js-->
+    <script src="__PUBLIC__/public/js/zepto.js" type="text/javascript" charset="utf-8"></script>
+    <script src="__PUBLIC__/public/js/common.js" type="text/javascript" charset="utf-8"></script>
+    <script src="__PUBLIC__/public/js/mui.min.js" type="text/javascript" charset="utf-8"></script>
+    <script src="__PUBLIC__/public/js/vue.js" type="text/javascript" charset="utf-8"></script>
+	<script src="__PUBLIC__/public/layer_mobile/layer.js" type="text/javascript" charset="utf-8"></script>
+    <!--css-->
+
+	
+	<link href="__PUBLIC__/public/css/mui.min.css" rel="stylesheet"/>
+    <link rel="stylesheet" type="text/css" href="__PUBLIC__/public/css/common.css"/>
+    <link rel="stylesheet" type="text/css" href="__PUBLIC__/public/css/order_list.css"/>
+    <link rel="stylesheet" type="text/css" href="__PUBLIC__/public/css/ali_font.css"/>
+
+	
+</head>
+<body>
+<header class="mui-bar mui-bar-nav red_bg">
+    <a class="mui-action-back mui-icon mui-icon-left-nav mui-pull-left white_color"></a>
+    <h1 class="mui-title white_color">线上留言</h1>
+</header>
+<style>
+.box{background: #fff;height:auto;border-bottom: 1px solid #ececec;padding: 0.5rem;overflow:hidden;}
+.photo{width: 1.76rem;height: 1.76rem;border-radius: 50%;margin-right: 0.4rem;}
+.p1{font-size: 0.6rem;color: #333;margin-bottom: 0.28rem;line-height: 1rem;}
+.p2{font-size: 0.3rem;color: #999;margin-bottom: 0;}
+.blue_btn{width: 3rem;height: 1rem;line-height: 1rem;text-align: center;border: 1px solid #4AB9E7;color: #4AB9E7;border-radius: 0.2rem;font-size: 0.48rem;margin-top: -1.4rem;}
+.red_btn{width: 2rem;height: 1rem;line-height: 1rem;text-align: center;border: 1px solid #ff4747;color: #ff4747;border-radius: 0.2rem;font-size: 0.48rem;margin-top: -1.4rem;}
+.lx{width: 0.48rem;height: 0.48rem;vertical-align: middle;margin-top: -0.08rem;}
+</style>
+
+<script>
+mui('body').on('tap','a',function(){ 
+	window.top.location.href=this.href;
+});
+</script>
+
+<div class="mui-content app_show" id="app">
+	<div class="mui-scroll-wrapper mui-slider-indicator mui-segmented-control mui-segmented-control-inverted" style="background: #fff;margin-bottom:0.4rem;">
+		<div class="mui-scroll" style="transform: translate3d(0px, 0px, 0px) translateZ(0px); transition-duration: 0ms;">
+			<a class="mui-control-item" href="__ROOT__/Message/" style="width:50% !important;border-bottom:1px solid #fff;">全部医生</a>
+			<a class="mui-control-item mui-active" href="__ROOT__/Message/dlist" style="width:50% !important;">关于我的咨询</a>
+		</div>
+	</div>
+
+    <volist name="listD" id="vo" empty="$empty">
+        <div class="box">
+            <img src="{$vo.headimgurl}" class="photo fl">
+            <p class="p1" style="margin-bottom:0px;">{$vo.name}</p>
+            <p class="p2">{$vo.chengshi}-{$vo.yiyuan}-{$vo.keshi}</p>
+            <a href="__ROOT__/Chat/index/id/{$vo.id}">
+                <div class="red_btn fr">留言</div>
+            </a>
+        </div>
+    </volist>
+
+</div>
+
+<nav class="mui-bar mui-bar-tab" style="height: 1.96rem;color: #666666;font-size: 0.56rem;">
+    <a class="mui-tab-item" href="__ROOT__">
+        <span class="mui-icon iconfont icon-home"></span>
+        <span class="mui-tab-label">首页</span>
+    </a>
+    <a class="mui-tab-item" href="__ROOT__/MyOrder/">
+        <span class="mui-icon iconfont icon-dingdan"></span>
+        <span class="mui-tab-label">订单</span>
+    </a>
+    <a class="mui-tab-item mui-active" href="__ROOT__/Message/">
+        <span class="mui-icon iconfont icon-xiaoxi"></span>
+        <span class="mui-tab-label">消息</span>
+    </a>
+    <a class="mui-tab-item" href="__ROOT__/Main/">
+        <span class="mui-icon iconfont icon-people"></span>
+        <span class="mui-tab-label">我的</span>
+    </a>
+</nav>
+</body>
+</html>

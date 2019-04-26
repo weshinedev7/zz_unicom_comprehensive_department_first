@@ -1,0 +1,312 @@
+.mui-segmented-control.mui-scroll-wrapper .mui-scroll{
+	width: 100%;
+}
+.mui-segmented-control.mui-scroll-wrapper .mui-control-item {
+    width:25% !important;
+    height: 1.52rem;
+    line-height: 1.52rem;
+    float: left;
+    color: #666;
+    font-size: 0.6rem;
+    text-align: center;
+    display: inline-block;
+    padding: 0 0.2rem;
+}
+.mui-segmented-control.mui-segmented-control-inverted .mui-control-item.mui-active{	
+	color: #ff4747;
+	font-size: 0.6rem;
+	text-align: center;
+	border-bottom: 0.04rem solid #ff4747 !important;
+}
+.mui-bar-nav~.mui-content .mui-slider.mui-fullscreen{
+	top:1.76rem !important;
+	bottom:1.96rem !important;
+	
+}
+.mui-segmented-control.mui-scroll-wrapper {
+   height: 1.6rem;
+}
+.mui-segmented-control.mui-segmented-control-inverted .mui-control-item.mui-active{	
+	color: #ff4747;
+	font-size: 0.6rem;
+	text-align: center;
+	border-bottom: 0.04rem solid #ff4747 !important;
+}
+
+.mui-fullscreen .mui-segmented-control~.mui-slider-group{
+	top: 1.6rem !important;
+}
+.dbjy {
+    background: #fff;
+    font-size:0.64rem;
+    color: #555;
+    padding: 0 0.64rem;
+    height:2.04rem;
+    line-height:2.04rem;
+   border-bottom: 0.02rem solid #ececec;
+
+}
+.first_xx{
+	margin-top: 0.4rem;
+}
+.first_xx:last-child{
+    margin-bottom: 3rem;
+}
+.hl {
+    color: #FF4747;
+    font-size:0.48rem;
+}
+.time{
+	font-size:0.48rem;
+	color: #999999;
+	margin-left: 0.4rem;
+}
+.db_item {
+    padding: 0.58rem 0.64rem !important;
+    font-size:0.68rem;
+    color: #555;
+    font-weight: bold;
+    /*border-bottom: 1px solid #ececec;*/
+    background-color: #FFFFFF;
+}
+.db_item p {
+    font-weight: normal;
+    font-size: 0.48rem;
+}
+.p2 {
+    margin-bottom: 0;
+}
+.p1{
+	color: #666;
+	font-size: 0.56rem;
+	/*margin:0.6rem 0 !important;*/
+}
+.warn{
+	font-size: 0.52rem;
+	color: #999999;
+	
+}
+.pf {
+    background: url(https://static.9891.com/app/icon/goodsxq_22.png) no-repeat;
+    background-size: cover;
+}
+.fh {
+    background: url(https://static.9891.com/app/icon/goodsxq_25.png) no-repeat;
+    background-size: cover;
+    margin-left: 0.4rem;
+}
+
+.fl2{
+	font-size:0.48rem;
+	color: #555555;
+}
+.order_list{
+	width: 100%;
+	box-sizing: border-box;
+	padding: 0 0.64rem;
+	background-color: #FFFFFF;
+	height: 2.0rem;
+	border-bottom: 0.02rem solid #ECECEC;
+}
+.lxmj{
+	float:left;
+	display: inline-block;
+	width:3.6rem;
+	height:1.2rem;
+	line-height:1.2rem;
+	text-align: center;
+	color: #666666;
+	font-size:0.56rem;
+	border: 0.02rem solid #DDDDDD;
+	margin-top: 0.2rem;
+	border-radius: 0.2rem;
+}
+.pay{
+	float: right;
+	display: inline-block;
+	width:3rem;
+	height:1.2rem;
+	line-height:1.2rem;
+	text-align: center;
+	color: #FF4747;
+	font-size:0.56rem;
+	border: 0.02rem solid #FF4747;
+	/*margin: 0.5rem 0;*/
+	border-radius: 0.2rem;
+}
+.qxdd{
+	width: 3rem;
+	margin: 0.5rem 0.8rem;
+}
+.lx_mj{
+	margin-left:2.5rem;
+}
+.blue_qe{
+	display: inline-block;
+	width:0.48rem;
+	height:0.52rem;
+	background: url(https://static.9891.com/app/icon/blue_qe.png) no-repeat center;
+	vertical-align: middle;
+    background-size: cover;
+    margin-top: -4px;
+    margin-right:0.12rem;
+}
+.red_kf{
+    display: inline-block;
+    width: 0.48rem;
+    height: 0.52rem;
+    background: url(../images/red_kf.png) no-repeat center;
+    vertical-align: middle;
+    background-size: cover;
+    margin-top: -4px;
+    margin-right: 0.12rem;
+}
+
+.zhifu{
+    display: inline-block;
+    width: 0.52rem;
+    height: 0.52rem;
+    background: url(../images/zhifu.png) no-repeat center;
+    vertical-align: middle;
+    background-size: cover;
+    margin-top: -4px;
+    margin-right: 0.12rem;
+}
+
+.order_icon{
+	display: inline-block;
+	width: 0.6rem;
+	height:0.64rem;
+	background:url(https://static.9891.com/app/icon/dd-1.png) no-repeat center;
+	background-size: contain;
+}
+.order_icon.currn{
+	display: inline-block;
+	width: 0.6rem;
+	height:0.64rem;
+	background:url(https://static.9891.com/app/icon/dd-2.png) no-repeat center;
+	background-size: contain;
+}
+.mui-bar-tab .mui-tab-item.mui-active {
+    color: #FF4747;
+}
+.mui-bar-tab .mui-tab-item .mui-icon {
+    top: 7px;
+    
+}
+.mine{
+	display: inline-block;
+	width:0.68rem;
+	height:0.72rem;
+	background:url(https://static.9891.com/app/icon/wd-1.png) no-repeat center;
+	background-size: contain;
+}
+/*.mui-bar-tab .mui-tab-item {
+    display: table-cell;
+    overflow: hidden;
+    width: 1%;
+    height:1.86rem;
+    text-align: center;
+    vertical-align: middle;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    color: #666;
+    font-size: 0.56rem;
+}*/
+.home{
+	display: inline-block;
+	width:0.72rem;
+	height:0.64rem;
+	background:url(https://static.9891.com/app/icon/home-1.png) no-repeat center;
+	background-size: contain;
+}
+.xlbz_icon {
+    display: inline-block;
+    width: 0.52rem;
+    height: 0.52rem;
+    background: url(https://static.9891.com/app/img/dl_05.jpg) no-repeat center;
+    background-size: cover;
+    vertical-align: middle;
+    margin-top: -2px;
+    margin-right: 0.1rem;
+}
+.dhbp_icon {
+	display: inline-block;
+    width: 0.52rem;
+    height: 0.52rem;
+    background: url(https://static.9891.com/app/img/dl_09.jpg) no-repeat center;
+    background-size: cover;
+    vertical-align: middle;
+    margin-top: -2px;
+    margin-right: 0.1rem;
+}
+.aqbz{
+	display: inline-block;
+    width: 0.52rem;
+    height: 0.52rem;
+    background: url(https://static.9891.com/app/img/dl_07.jpg) no-repeat center;
+    background-size: cover;
+    vertical-align: middle;
+    margin-top: -2px;
+    margin-right: 0.1rem;
+}
+.mui-bar-tab .mui-tab-item .mui-icon~.mui-tab-label {
+    font-size:0.56rem;
+    display: block;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+.ckyy{
+    float: left;
+    display: inline-block;
+    width:3.6rem;
+    height: 1.2rem;
+    line-height: 1.2rem;
+    text-align: center;
+    color: #666666;
+    font-size: 0.56rem;
+    border: 0.02rem solid #DDDDDD;
+    border-radius: 0.2rem;
+}
+
+
+.mui-bar-tab .mui-tab-item .mui-icon {
+    top: 0.12rem;
+    width: 0.96rem;
+    height: 0.96rem;
+    padding-top: 0;
+    padding-bottom: 0;
+}
+.mui-bar{
+	box-shadow: none;
+	/*border: 1px solid #ECECEC;*/
+}
+
+.mui-bar-tab .mui-tab-item .mui-icon~.mui-tab-label{
+	font-size: 0.4rem;
+	margin-bottom: -0.04rem;
+}
+
+.mui-slider .mui-segmented-control.mui-segmented-control-inverted~.mui-slider-group .mui-slider-item{
+	border-bottom: 0 !important;
+	border-top: 0 !important;
+	
+}
+
+/*删除历史*/
+.mui-table-view-cell{
+	position: relative;
+    overflow: hidden;
+    padding: 0.6rem 0.64rem;
+    background: #FFFFFF;
+    border-bottom: 0.02rem solid #ECECEC;
+}
+.mui-btn-danger, .mui-btn-negative, .mui-btn-red{
+	background: #FF4747 !important;
+}
+.hg{
+	line-height: 1.0rem;
+}
+p.p2{
+	/*padding-top: 0.5rem !important;*/
+}

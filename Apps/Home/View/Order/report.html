@@ -1,0 +1,125 @@
+<!doctype html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no"/>
+    <title>订单报告查询</title>
+    <!--js-->
+    <script src="__PUBLIC__/public/js/zepto.js" type="text/javascript" charset="utf-8"></script>
+    <script src="__PUBLIC__/public/js/common.js" type="text/javascript" charset="utf-8"></script>
+    <script src="__PUBLIC__/public/js/mui.min.js" type="text/javascript" charset="utf-8"></script>
+    <script src="__PUBLIC__/public/js/ali_font.js" type="text/javascript" charset="utf-8"></script>
+    <script src="__PUBLIC__/public/layer_mobile/layer.js" type="text/javascript" charset="utf-8"></script>
+    <!--css-->
+    <link href="__PUBLIC__/public/css/mui.min.css" rel="stylesheet"/>
+    <link rel="stylesheet" type="text/css" href="__PUBLIC__/public/css/common.css"/>
+    <link rel="stylesheet" type="text/css" href="__PUBLIC__/public/css/order_list.css"/>
+    <link rel="stylesheet" type="text/css" href="__PUBLIC__/public/css/ali_font.css"/>
+    <link rel="stylesheet" type="text/css" href="__PUBLIC__/public/css/game_list.css"/>
+</head>
+<body>
+<header class="mui-bar mui-bar-nav red_bg">
+    <a class="mui-action-back mui-icon mui-icon-left-nav mui-pull-left white_color"></a>
+    <h1 class="mui-title white_color">订单报告查询</h1>
+    <i class="xq"></i>
+</header>
+<div class="mui-content" id="app" style="display: block;">
+    <div id="slider" class="mui-slider mui-fullscreen" style="background-color: #efeff4;">
+        <div style="position: relative;margin-top: 0.4rem;">
+            <input type="text" placeholder="请输入关键字" value="<php>echo $_GET['k'];</php>" class="search_all" id="keyword">
+            <a class="red_search" onclick="location.href='__URL__/search/k/'+$('#keyword').val()"></a>
+        </div>
+        <div class="mui-slider-group">
+            <div class="mui-slider-item mui-control-content mui-active">
+                <div class="mui-scroll-wrapper" id="scroll_0">
+                    <div class="mui-scroll">
+
+                        <!--第一屏待付款-->
+                        <volist name="list" id="vo" empty="$empty">
+                            <div class="first_xx">
+                                <div class="dbjy">
+                                    <i class="goods_type_icon_10"></i>检测申请
+                                    <span class="time">{$vo.inputtime}</span>
+                                    <if condition="$vo['status']=='0'">
+                                        <span class="fr hl" style="color:red;">待付款</span>
+                                    </if>
+                                    <if condition="$vo['status']=='1'">
+                                        <span class="fr hl" style="color:green;">已微信支付</span>
+                                    </if>
+                                    <if condition="$vo['status']=='2'">
+                                        <span class="fr hl" style="color:green;">线下支付</span>
+                                    </if>
+                                </div>
+                                <div class="db_item">
+                                    <span class="hg">{$vo.name}<span class="time">{$vo.telephone}</span></span><span class="fl2 fr"><span class="orange_color" style="font-size: 0.6rem;">
+                                            ¥{$vo.price}</span></span>
+                                    <p class="p1" style="margin-bottom:0px;">订单号：{$vo.ordernum}</p>
+                                    <p class="p1" style="margin-bottom:0px;">身份证：{$vo.idcode}</p>
+                                    <p class="p2">
+                                        <span class="warn"><i class="icon ensure_aqbz"></i>{$vo.chengshi}-{$vo.yiyuan}-{$vo.keshi}-{$vo.yishi}<i
+                                                class="icon"></i></span>
+
+                                    </p>
+                                </div>
+                                <div class="order_list">
+                                    <div onclick="readReport('{$vo.idcode}')" class="ckyy" style="float: right;"><i></i>查看报告</div>
+                                    <a href="tel:4001697998" class="ckyy" style="float: right;margin-right:10px;"><i class="red_kf"></i>联系客服</a>
+                                </div>
+                                <div class="clear"></div>
+                            </div>
+                        </volist>
+
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</div>
+<nav class="mui-bar mui-bar-tab" style="height: 1.96rem;color: #666666;font-size: 0.56rem;">
+    <a class="mui-tab-item" href="__ROOT__">
+        <span class="mui-icon iconfont icon-home"></span>
+        <span class="mui-tab-label">首页</span>
+    </a>
+    <a class="mui-tab-item mui-active" href="__ROOT__/MyOrder/">
+        <span class="mui-icon iconfont icon-dingdan"></span>
+        <span class="mui-tab-label">订单</span>
+    </a>
+    <a class="mui-tab-item" href="__ROOT__/Message/">
+        <span class="mui-icon iconfont icon-xiaoxi"></span>
+        <span class="mui-tab-label">消息</span>
+    </a>
+    <a class="mui-tab-item" href="__ROOT__/Main/">
+        <span class="mui-icon iconfont icon-people"></span>
+        <span class="mui-tab-label">我的</span>
+    </a>
+</nav>
+</body>
+<script src="__PUBLIC__/public/js/order_list.js"></script>
+<script>
+    function search(){
+        $keyword=$('#keyword').val();
+        location.href="__URL__/search/k/"+$keyword;
+    }
+</script>
+<script type="application/javascript">
+    function readReport(idcode){
+        var data = {idcode:idcode};
+        $.ajax(
+            {
+                url:'__ROOT__/MyOrder/readReport',
+                data:data,
+                type:'POST',
+                dataType:'json',
+                success:function(json){
+                    if(json.stag==1){
+                        window.location.href=json.simple_pdf_url;
+                    }else{
+                        layer.open({content: '报告暂未生成',skin: 'msg',time: 2});
+                    }
+                }
+            }
+        );
+    }
+</script>
+</html>

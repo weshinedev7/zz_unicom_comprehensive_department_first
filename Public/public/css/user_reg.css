@@ -1,0 +1,83 @@
+html,body{
+	background: #fff !important;
+}
+
+.mui-input-group{
+	 padding: 0.4rem 1.52rem;
+
+}
+.mui-input-group:before, 
+.mui-input-group:after {  
+    height: 0px; 
+   
+}
+.mui-input-group .mui-input-row:after{
+	 left: 0 !important;
+	 height: 0;
+}
+.mui-input-group .mui-input-row {
+    height: 1.6rem; 
+    margin-bottom: 0.4rem;
+    position: relative;
+    border-bottom: 1px solid #ececec;
+} 
+.yzm{
+	position: absolute;
+	top: 0.4rem;
+	right: 0.4rem;
+	font-size: 0.56rem;
+	color: #0066CC;
+}
+.mui-input-row label~input,label{
+	height: 1.6rem;
+	 width: 82% !important;
+	 font-size: 0.56rem;
+	 color: #333 !important;
+	
+}
+.mui-input-row label{
+	width: 15% !important;
+	padding: 0 !important;
+	height: 1.76rem;
+	text-align: center;
+	line-height: 1.76rem;
+ margin-top: -0.18rem;
+}
+.mui-input-group .mui-button-row{
+	height: 1.6rem !important;
+	margin-top: 1.2rem;
+	margin-bottom: 0.56rem;
+	padding-top: 0;
+}
+
+.login_btn{
+	width: 100%;
+	height: 1.6rem;
+	font-size: 0.72rem;
+	color: #fff;
+	border: none;
+	border-radius: 50px;
+	
+}
+
+.agree{
+	width: 0.68rem;
+	height: 0.68rem;
+	background: pink;
+	display: inline-block;
+	vertical-align: middle;
+	background: url('https://static.9891.com/app/icon/agree.png') no-repeat center 0px;
+	background-size: cover;
+	margin-top: -2px;
+	margin-right: 0.06rem;
+}
+
+.xy{
+	color: #999;
+	font-size: 0.48rem;
+	width: 100%;
+	text-align: center;
+}
+.xy a{
+	color: #0066CC;
+}

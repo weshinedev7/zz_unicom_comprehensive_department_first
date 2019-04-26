@@ -1,0 +1,32 @@
+<html>
+<head>
+<title>未登录通知</title>
+<meta id="viewport" name="viewport" content="width=device-width; initial-scale=1.0; maximum-scale=1; user-scalable=no;">
+<meta name="format-detection" content="telephone=no">
+<link href="__PUBLIC__/public/css/loading.css" rel="stylesheet">
+<link href="__PUBLIC__/public/css/pop.css" rel="stylesheet">
+<script type="text/javascript">
+function doCall(){
+	window.location.href="__ROOT__/Login/";
+}
+</script>
+</head>
+<body>
+	<div class="loading_wrap">
+		<span class="loading animate"></span>
+	</div>
+	<div class="pop_wraper" id="alert_box1">
+		<div class="pop_outer pop_midder">
+			<div class="pop_tip">
+				<p class="pop_tip_p4">未登录通知</p>
+				<p class="pop_tip_p5">您还没有登录,请先登录!</p>
+				<p class="pop_tip_p3 border b_top">
+				<span class="border b_rgt"><button class="p_btn" onclick="doCall()">关闭</button></span>
+				<span><button id="cli" class="p_btn cols" onclick="doCall()">确认</button></span>
+				</p>
+			</div>
+		</div>
+	</div>
+
+</body>
+</html>

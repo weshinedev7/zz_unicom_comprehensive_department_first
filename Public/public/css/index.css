@@ -1,0 +1,301 @@
+.mui-content {
+	padding-top: 0;
+}
+
+.top_bar {
+	width: 100%;
+	height: 1.76rem;
+	line-height: 1.76rem;
+	color: #999;
+	position: fixed;
+	z-index: 99999;
+	top: 0;
+	left: 0;
+	padding: 0 0.64rem;
+	text-align: center;
+	_position: absolute;
+	_top: expression(documentElement.scrollTop + "px");
+}
+
+.top_bar_bg {
+	background: rgba(0, 0, 0, 0.5);
+}
+
+.logo {
+	width: 3.8rem;
+	/* height: 0.72rem; */
+	margin-right: 0.1rem;
+	vertical-align: middle;
+}
+
+.ss_input {
+	width: 6.4rem !important;
+	padding: 0 !important;
+	height: 1rem !important;
+	border: 0 !important;
+	/*text-indent: 0.2rem;*/
+	font-size: 0.48rem;
+	margin-bottom: 0 !important;
+	float: left;
+	margin: 0 0.4rem;
+}
+
+.kefu {
+	width: 0.8rem;
+	vertical-align: middle;
+	margin-left: 0.1rem;
+}
+
+.sou {
+	width: 0.6rem;
+	height: 0.6rem;
+	/*vertical-align: middle;*/
+	margin-left: 0.5rem;
+	/*position: absolute;
+	top: 50% !important;
+	margin-top: -0.3rem;
+	left: 0.2rem;*/
+	float: left;
+	margin-top: 0.2rem;
+}
+
+.wrap_img {
+	width: 8.4rem !important;
+	padding: 0 !important;
+	height: 1rem !important;
+	line-height: 1rem !important;
+	border-radius: 50px !important;
+	margin-bottom: 0 !important;
+	text-indent: 1.4rem;
+	font-size: 0.48rem;
+	display: inline-block;
+	vertical-align: middle;
+}
+
+.jgg {
+	width: 2.08rem;
+	height: 2.08rem;
+}
+
+.mui-media-body {
+	font-size: 0.56rem !important;
+	color: #333 !important;
+	text-overflow: initial !important;
+	margin-top: 0.2rem !important;
+}
+
+.menu {
+	background: #fff !important;
+	border-top: 0 !important;
+	border-left: 0 !important;
+}
+
+.mui-slider {
+	background: #fff;
+}
+
+.menu .mui-table-view-cell {
+	border-right: 0 !important;
+}
+
+.mui-table-view .mui-media,
+.mui-table-view .mui-media-body {
+	overflow: initial !important;
+	height: initial !important;
+}
+
+.mui-table-view-cell>a:not(.mui-btn) {
+	overflow: initial !important;
+}
+.mui-grid-view.mui-grid-9 .mui-table-view-cell{
+	    /*padding: 2px 15px 15px !important;*/
+}
+.least {
+	width: 100%;
+	height: 1.96rem;
+	line-height: 1rem;
+	background: #fff;
+	padding: 0 0.64rem;
+	font-size: 0.52rem;
+	color: #999;
+}
+
+.cj {
+	width: 0.68rem;
+	height: 0.68rem;
+	margin-top: 0.64rem;
+	vertical-align: middle;
+	margin-right: 0.4rem;
+	float: left;
+}
+
+.over {
+	float: left;
+	width: 91.6%;
+	height: 1.96rem;
+	overflow: hidden;
+	white-space: nowrap;
+}
+
+.li {
+	width: 100%;
+	height: 1.96rem;
+	line-height: 1.96rem;
+	overflow: hidden;
+	white-space: nowrap;
+	text-overflow: ellipsis;
+}
+.mui-e{
+	height: 1rem;
+}
+.user_img {
+	width: 1rem;
+	height: 1rem;
+	border-radius: 100%;
+	margin-top: 0.46rem;
+margin-right: 0.2rem;
+	float: left;
+	
+}
+.li_p{
+
+line-height: 2.1rem;
+}
+.game {
+	background: #fff !important;
+}
+
+.game_img {
+	width: 2.2rem;
+	height:2.2rem;
+}
+
+.p1 {
+	font-size: 0.56rem;
+	color: #555;
+	
+	margin-bottom: 0.3rem !important;
+	margin-top: 0.1rem;
+}
+
+.p2 {
+	font-size: 0.48rem;
+	margin-bottom: 0.3rem !important;
+}
+
+.blue {
+	color: #4293de;
+}
+
+.jinse {
+	color: #d8870b;
+}
+
+.mui-grid-view.mui-grid-9 .mui-table-view-cell>a:not(.mui-btn) {
+	padding: 10px 0 0 !important;
+}
+
+.game .mui-table-view-cell .mui-media-body {
+	/*margin-top: 0.8rem !important;*/
+	line-height: 0.8rem !important;
+}
+
+.game .mui-table-view-cell {
+	padding: 0.2rem !important;
+	position: relative;
+}
+.mui-grid-view.mui-grid-9 .mui-table-view-cell{
+	border: 0 !important;
+}
+.state {
+	width: 1.48rem;
+	height: 1.4rem;
+	position: absolute;
+	top: -1px;
+	right: -1px;
+}
+
+.mui-bar-tab .mui-tab-item.mui-active {
+	color: #FF4747;
+}
+
+.mui-bar-tab .mui-tab-item .mui-icon {
+	top: 0.12rem;
+	width: 0.96rem;
+	height: 0.96rem;
+	padding-top: 0;
+	padding-bottom: 0;
+}
+
+.mui-bar {
+	box-shadow: none;
+	border: 1px solid #ECECEC;
+}
+
+.mui-bar-tab .mui-tab-item .mui-icon~.mui-tab-label {
+	font-size: 0.4rem;
+	margin-bottom: -0.04rem;
+}
+
+.mui-content {
+	padding-bottom: 2.6rem !important;
+}
+
+.mui-slider-indicator .mui-indicator {
+	width: 0.32rem!important;
+	height: 0.32rem !important;
+}
+
+.fix_img {
+	position: absolute;
+	bottom: 0;
+	left: 0;
+	width: 100%;
+}
+
+.mui-slider-indicator .mui-indicator {
+	box-shadow: none !important;
+}
+.hote_game{
+	width: 100%;
+	padding: 0.2rem 0.64rem 0;
+	height: 1.4rem;
+	line-height: 1.4rem;
+	font-size: 0.6rem;
+	font-weight:700;
+	color: #555;
+	background: #FFFFFF;
+	margin-top: 0.3rem;
+	overflow: hidden;
+	
+}
+.more{
+	color: #555555;
+	font-size: 0.48rem;
+	font-weight: normal;
+	margin-top: -0.05rem;
+}
+.hot{
+	display: inline-block;
+	width: 0.6rem;
+	height: 0.6rem;
+	background: url(https://static.9891.com/app/icon/hot_new.png) no-repeat center;
+	background-size: cover;
+	vertical-align: middle;
+	margin-right: 0.2rem;
+	margin-top: -0.2rem;
+
+}
+.mui-grid-view.mui-grid-9{
+	border-top:none !important;
+	border-left: none !important;
+}
+.bb{
+	width: 100%;
+	text-align: center;
+	margin-top: 0.2rem;
+}
+.bb a{
+	color: #555555;
+	font-size: 0.48rem;
+}
